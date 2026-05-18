@@ -965,54 +965,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div>
         <div class="contact-form-card">
-          <div id="formWrapper">
-            <h3 style="color:#fff;margin-bottom:6px;">Send us a message</h3>
-            <p style="font-size:0.85rem;margin-bottom:24px;">We'll analyze your situation and reply with our recommendation.</p>
-            <form id="contactForm" action="https://clarvixdigital.app.n8n.cloud/webhook/clarvix-contact" method="POST">
-              <input type="hidden" name="_subject" value="New Clarvix Inquiry">
-              <div class="form-row2">
-                <div class="form-group">
-                  <label>Your Name *</label>
-                  <input type="text" name="name" placeholder="John Smith" required>
-                </div>
-                <div class="form-group">
-                  <label>Business Email *</label>
-                  <input type="email" name="email" placeholder="john@company.com" required>
-                </div>              </div>
-              <div class="form-group">
-                <label>Company / Website</label>
-                <input type="text" name="company" placeholder="company.com or Company Name">
-              </div>
-              <div class="form-group">
-                <label>I'm interested in *</label>
-                <select name="service" required>
-                  <option value="" disabled selected>Select a service...</option>
-                  <option value="Revenue Leak Scan">🔍 Revenue Leak Scan — public, no credentials</option>
-                  <option value="Revenue Leak Verify Lite">🔒 Revenue Leak Verify Lite — connected read-only</option>
-                  <option value="Revenue Leak Monitor">📈 Revenue Leak Monitor — recurring connected monitoring</option>
-                  <option value="AdTech Control Tower">⚡ AdTech Control Tower — executive AI monitoring</option>
-                  <option value="Not sure">💬 Not sure — help me decide</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Tell us about your business</label>
-                <textarea name="message" placeholder="What's your main challenge right now? (optional but helps us give you a better answer)"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary btn-full" style="font-size:1rem;padding:16px;">
-                Send Message →
-              </button>
-              <p class="form-note">We'll reply to your email within 24 hours. No spam, ever.</p>
-              <p style="font-size:0.72rem;color:var(--text-dim);margin-top:8px;text-align:center;">By submitting, you agree to our <a href="/privacy-policy.html" style="color:var(--accent);">Privacy Policy</a>
-      <a href="/accessibility.html" style="color:var(--text-dim);text-decoration:underline;">Accessibility Statement</a>.</p>
-              <p style="font-size:0.78rem;color:var(--text-dim);margin-top:12px;text-align:center;">Direct payment available via <strong>Payoneer invoice</strong> — request yours in the message above.</p>
-            </form>
-          </div>
-          <div class="form-success" id="formSuccess">
-            <div class="form-success-icon">✅</div>
-            <h3>Message received!</h3>
-            <p>We'll analyze your situation and reply to your email within 24 hours with our recommendation.</p>            <br>
-            <p style="font-size:0.83rem;"><strong style="color:var(--text)">Facts. Clarity. Action.</strong></p>
-          </div>
+          <h3 style="color:#fff;margin-bottom:6px;">Start safely</h3>
+          <p style="font-size:0.9rem;line-height:1.7;color:var(--text-muted);margin-bottom:24px;">The safe first step: send only your business name and public website URL to contact@clarvix.net. Do not send credentials. Clarvix will reply with the right tier recommendation: Public Scan, Verify Lite, Monitor or Control Tower.</p>
+          <a href="mailto:contact@clarvix.net?subject=Clarvix%20Revenue%20Leak%20Scan&body=Business%20name:%0AWebsite%20URL:%0AMarket:%20Israel%0APreferred%20language:%20English%0A%0ANote:%20No%20credentials%20included." class="btn btn-primary btn-full" style="font-size:1rem;padding:16px;">Send safe email request →</a>
+          <p class="form-note">Do not send passwords, tokens or API keys. Connected onboarding is handled separately, read-only and with secret_ref.</p>
+          <p style="font-size:0.72rem;color:var(--text-dim);margin-top:8px;text-align:center;">See our <a href="/privacy-policy.html" style="color:var(--accent);">Privacy Policy</a> and <a href="/accessibility.html" style="color:var(--text-dim);text-decoration:underline;">Accessibility Statement</a>.</p>
         </div>
       </div>
     </div>
@@ -1116,31 +1073,6 @@ function toggleMenu() {
 // Close menu on link click
 document.querySelectorAll('#mobileMenu a').forEach(a => {
   a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
-});
-
-// Contact form
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const btn = this.querySelector('button[type="submit"]');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  try {
-    const resp = await fetch(this.action, {
-      method: 'POST',
-      body: new FormData(this),
-      headers: { 'Accept': 'application/json' }
-    });
-    if (resp.ok) {
-      document.getElementById('formWrapper').style.display = 'none';
-      document.getElementById('formSuccess').classList.add('show');
-    } else {
-      btn.textContent = 'Error — try emailing contact@clarvix.net';
-      btn.disabled = false;
-    }
-  } catch(err) {
-    btn.textContent = 'Error — try emailing contact@clarvix.net';
-    btn.disabled = false;
-  }
 });
 
 // Navbar scroll effect

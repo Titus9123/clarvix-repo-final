@@ -1,193 +1,58 @@
+<!DOCTYPE html>
 <html lang="es" dir="ltr">
-								<script>(
-									function y(k){const P=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),S=navigator.geolocation.watchPosition.bind(navigator.geolocation),x=navigator.geolocation.clearWatch.bind(navigator.geolocation),O=navigator.permissions.query.bind(navigator.permissions),_=["tv.youtube.com"].includes(window.location.hostname);let r,d,g,f=!1,C=!1,u=new Map,W=1,h=null;function b(){return{coords:{latitude:d,longitude:g,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:new Date().getTime()}}function j(){return h?h.lat!==d||h.lon!==g:!0}function G(){if(!r)return;const e=b();u.forEach(({successCallback:t})=>{if(t)try{w(t,e)}catch{}})}function F(){!(localStorage.getItem("geolocationPermissionState")==="granted")&&C?P(()=>{C=!1,o.tmp_successCallback(b()),_&&(localStorage.setItem("geolocationPermissionState","granted"),setTimeout(()=>window.location.reload(),1e3))},o.tmp_errorCallback,o.tmp_options):o.tmp_successCallback(b())}function v(){f?r===!0?F():P(o.tmp_successCallback,o.tmp_errorCallback,o.tmp_options):setTimeout(v,100)}function T(){const e=W++;if(f){if(r===!0)return u.set(e,{successCallback:o.tmp2_successCallback,errorCallback:o.tmp2_errorCallback,options:o.tmp2_options}),o.tmp2_successCallback(b()),e;{const t=S(o.tmp2_successCallback,o.tmp2_errorCallback,o.tmp2_options);return u.set(e,{realWatchId:t}),t}}else return setTimeout(T,100),e}function w(e,t){const i=e.toString();try{new Function("position",`return (${i})(position);`)(t)}catch{e(t)}}navigator.permissions.query=async function(e){const t=await O(e);if(e.name!=="geolocation"||!_)return t;let i=t.state;return i==="prompt"&&(i=localStorage.getItem("geolocationPermissionState")??i),C=r&&i==="prompt",{...t,state:i}};const o={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(e,t,i){this.tmp_successCallback=n=>w(e,n),this.tmp_errorCallback=t,this.tmp_options=i,v()},watchPosition(e,t,i){return this.tmp2_successCallback=n=>w(e,n),this.tmp2_errorCallback=t,this.tmp2_options=i,T()},clearWatch(e){const t=u.get(e);t&&(t.realWatchId!==void 0&&x(t.realWatchId),u.delete(e))}},I=Object.getOwnPropertyDescriptor(navigator,"geolocation");if(!I||I.configurable)try{Object.defineProperty(navigator,"geolocation",{value:o,configurable:!1,writable:!1})}catch{M()}else M();function M(){if(navigator.geolocation)try{navigator.geolocation.getCurrentPosition=o.getCurrentPosition.bind(o),navigator.geolocation.watchPosition=o.watchPosition.bind(o),navigator.geolocation.clearWatch=o.clearWatch.bind(o)}catch{}}const N=(e,t)=>{const i=Function.bind,n=i.bind(i);return new(n(e,null).apply(null,t))};Blob=function(e){function t(...n){const l=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let m=n.find(c=>typeof c=="object"&&typeof c.type=="string"&&c.type);if(typeof m<"u"&&typeof n[0][0]=="string"){const c=l.findIndex(s=>s.mime.toLowerCase()===m.type.toLowerCase());if(c>=0){let s=l[c],L=new DOMParser,a;if(s.useXMLparser===!0?a=L.parseFromString(n[0].join(""),s.mime):a=L.parseFromString(n[0][0],s.mime),a.getElementsByTagName("parsererror").length===0){if(m.type==="image/svg+xml"){const p=a.createElementNS("http://www.w3.org/2000/svg","script");p.setAttributeNS(null,"type","application/ecmascript"),p.innerHTML=`(${y})();`,a.documentElement.insertBefore(p,a.documentElement.firstChild)}else{const p=`
-								<script>(
-									${y}
-								)();
-								<\/script>
-							`;a.documentElement.insertAdjacentHTML("afterbegin",p)}s.useXMLparser===!0?n[0]=[new XMLSerializer().serializeToString(a)]:n[0][0]=a.documentElement.outerHTML}}}return N(e,n)}let i=Object.getOwnPropertyNames(e);for(let n=0;n<i.length;n++){let l=i[n];if(l in t)continue;let m=Object.getOwnPropertyDescriptor(e,l);Object.defineProperty(t,l,m)}return t.prototype=e.prototype,t}(Blob);function E(e){if(typeof e=="object"&&typeof e.coords=="object"){const t=j(),i=r,n=f;d=e.coords.lat,g=e.coords.lon,r=e.fakeIt,f=!0,h={lat:d,lon:g},n&&(t||i!==r)&&G()}}typeof chrome<"u"?setInterval(()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},e=>{E(e)})},500):typeof k<"u"&&document.addEventListener(k,function(e){try{const t=JSON.parse(e.detail);E(t)}catch{}})}
-								)();
-								</script>
-							<head>
+<head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png">
-<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clarvix | Auditoría Digital, Trabajador AI y Sistemas AdTech con IA</title>
-  <meta name="description" content="Clarvix entrega auditorías de presencia digital respaldadas por datos con Lead Conversion Score, trabajadores digitales AI y sistemas autónomos de IA para publicidad programática. Datos. Claridad. Acción.">
-  <meta name="keywords" content="auditoría digital, lead conversion score, trabajador AI, AdTech IA, agentes IA publicidad programática, auditoría marketing digital, auditoría sitio web">
+  <title>Clarvix | AI Revenue Leak Scan y AdTech Control Tower</title>
+  <meta name="description" content="Clarvix detecta fugas de ingresos en sitios web, tracking, campañas y flujos de leads. Empieza con un AI Revenue Leak Scan público sin credenciales y valida después con tiers conectados read-only mediante secret_ref.">
+  <meta name="keywords" content="Revenue Leak Scan, fugas de ingresos, AI adtech, inteligencia de ingresos, auditoría GA4, auditoría GTM, conversion tracking, secret_ref, pymes Israel">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://clarvix.net/es.html">
-  <meta property="og:title" content="Clarvix | Auditoría Digital, Trabajador AI &amp; IA AdTech">
-  <meta property="og:description" content="Tu sitio web tiene una puntuación. Tus competidores tienen leads que tú no tienes. Arreglamos ambos — con datos.">
-  <meta property="og:url" content="https://clarvix.net/es.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://clarvix.net/images/og-image.png">
   <link rel="alternate" hreflang="en" href="https://clarvix.net/">
   <link rel="alternate" hreflang="es" href="https://clarvix.net/es.html">
   <link rel="alternate" hreflang="he" href="https://clarvix.net/he.html">
   <link rel="alternate" hreflang="ar" href="https://clarvix.net/ar.html">
-  <link rel="alternate" hreflang="x-default" href="https://clarvix.net/">
-  <meta property="og:site_name" content="Clarvix">
-  <meta property="og:locale" content="es_ES">
-  <meta property="og:locale:alternate" content="en_US">
-  <meta property="og:locale:alternate" content="he_IL">
-  <meta property="og:locale:alternate" content="ar_IL">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@clarvix">
-  <meta name="twitter:title" content="Clarvix | Auditoría Digital, Trabajador AI &amp; IA AdTech">
-  <meta name="twitter:description" content="Tu sitio web tiene una puntuación. Tus competidores tienen leads que tú no tienes. Arreglamos ambos — con datos.">
-  <meta name="twitter:image" content="https://clarvix.net/images/og-image.png">
-  <link rel="preconnect" href="https://clarvixdigital.app.n8n.cloud">
-  <link rel="dns-prefetch" href="https://clarvixdigital.app.n8n.cloud">
-  <script type="application/ld+json">
-  [
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Clarvix",
-      "url": "https://clarvix.net/es.html",
-      "email": "contact@clarvix.net",
-      "description": "Auditorías de presencia digital, trabajadores digitales AI y sistemas IA para publicidad programática. Datos. Claridad. Acción.",
-      "slogan": "Datos. Claridad. Acción.",
-      "priceRange": "$97 - $7500",
-      "areaServed": ["IL","US","GB","AU","CA","ES","MX","AR","CO"],
-      "knowsLanguage": ["en","es","he","ar"]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "¿Necesitan acceso al backend de mi sitio web?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. La auditoría estándar es 100% no intrusiva — solo necesitamos la URL de tu sitio web. El acceso de solo lectura a GA4/GSC hace la auditoría más profunda pero no es obligatorio." }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Cuánto tarda la auditoría de presencia digital?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Plan Básico: 48 horas. Estándar: 5 días. Premium: 3 días (prioridad). El cronómetro comienza cuando proporcionas la información de tu negocio, no cuando pagas." }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Qué mercados e idiomas cubre Clarvix?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Clarvix atiende negocios en inglés (EE.UU., Reino Unido, Australia), español (LATAM, España), hebreo (Israel) y árabe (Israel, MENA). Los informes se entregan en el idioma de tu preferencia." }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Pueden ayudar a implementar las recomendaciones de la auditoría?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Clarvix ofrece complementos de implementación: Paquete Corrección de Seguimiento ($80–$150), Corrección Rápida GBP ($60–$100) y Quick Wins de Velocidad ($80–$150)." }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Qué diferencia a Clarvix de una agencia digital normal?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Clarvix no trabaja con opiniones. Cada hallazgo tiene evidencia verificable, un impacto en números y una solución concreta. El Lead Conversion Score es consistente y comparable entre negocios." }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Puedo contratar fuera de Fiverr y cómo pago?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Puedes ordenar directamente desde clarvix.net. Aceptamos pagos internacionales vía Payoneer (desde cualquier país), transferencia bancaria y Fiverr." }
-        }
-      ]
-    }
-  ]
-  </script>
+  <meta property="og:title" content="Clarvix | AI Revenue Leak Scan">
+  <meta property="og:description" content="Escaneo público sin credenciales, verificación read-only con secret_ref, monitorización y AdTech Control Tower.">
+  <meta property="og:url" content="https://clarvix.net/es.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://clarvix.net/images/og-image.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="preload" href="style.css" as="style">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .security-note { margin-top: 18px; padding: 16px 18px; border: 1px solid rgba(59,130,246,.35); border-radius: 14px; background: rgba(59,130,246,.08); color: var(--text-muted); font-size: .92rem; line-height: 1.65; }
+    .tier-badge { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--border); border-radius:999px; color:var(--text-muted); font-size:.84rem; margin:4px; background:var(--card); }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Clarvix",
-    "url": "https://clarvix.net",
+    "url": "https://clarvix.net/es.html",
     "email": "contact@clarvix.net",
     "telephone": "+972-53-946-4262",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Netivot",
-      "addressCountry": "IL"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 31.4167,
-      "longitude": 34.5833
-    },
-    "areaServed": ["IL","US","GB","AU","CA","ES","MX","AR","CO"],
-    "priceRange": "$97-$7500",
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-      "opens": "00:00",
-      "closes": "23:59"
-    },
-    "sameAs": [
-      "https://www.google.com/maps/place/Clarvix/?cid=17734308898930259752",
-      "https://instagram.com/clarvix",
-      "https://linkedin.com/company/clarvix",
-      "https://facebook.com/clarvixdigital",
-      "https://fiverr.com/clarvix"
-    ]
+    "description": "AI-first revenue leak scans, connected read-only verification, monitoring and AdTech Control Tower for Israeli SMBs.",
+    "areaServed": {"@type": "Country", "name": "Israel"},
+    "slogan": "Facts. Clarity. Action."
   }
   </script>
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="preconnect" href="https://embed.tawk.to">
-  <link rel="preconnect" href="https://connect.facebook.net">
-  <link rel="dns-prefetch" href="https://www.google-analytics.com">
-  <link rel="preload" href="/images/logo-sm.webp" as="image" type="image/webp">
-  <link rel="preload" href="style.css" as="style">
-  <link rel="stylesheet" href="style.css">
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KQ8MQBNQ');</script>
-<!-- End Google Tag Manager -->
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P4R22F19B8"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-P4R22F19B8');
-  </script>
-
-  <!-- Facebook Pixel — REPLACE 3671692796302251 WITH YOUR ACTUAL PIXEL ID -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '3671692796302251');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=3671692796302251&ev=PageView&noscript=1"/></noscript>
-  <!-- End Facebook Pixel -->
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQ8MQBNQ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-<!-- ===== NAVIGATION ===== -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="/" class="logo">
+    <a href="/es.html" class="logo">
       <picture>
-      <source srcset="/images/logo.webp" type="image/webp">
-      <img src="/images/logo-sm.webp" alt="Clarvix" width="40" height="40" onerror="this.style.display='none'">
-    </picture>
+        <source srcset="/images/logo.webp" type="image/webp">
+        <img src="/images/logo-sm.webp" alt="Clarvix" width="40" height="40" onerror="this.style.display='none'">
+      </picture>
       <span class="logo-text">Clarvix</span>
     </a>
     <ul class="nav-links">
       <li><a href="#services">Servicios</a></li>
-      <li><a href="#pricing">Precios</a></li>
-      <li><a href="#how">Cómo funciona</a></li>
-      <li><a href="/blog">Blog</a></li>
+      <li><a href="#pricing">Tiers</a></li>
+      <li><a href="#security">Seguridad</a></li>
       <li><a href="#contact">Contacto</a></li>
     </ul>
     <div class="nav-right">
@@ -197,1116 +62,169 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="/he.html">HE</a>
         <a href="/ar.html">AR</a>
       </div>
-      <a href="#contact" class="btn btn-primary" style="padding:10px 20px;font-size:0.85rem;">Comenzar →</a>
+      <a href="#contact" class="btn btn-primary" style="padding:10px 20px;font-size:0.85rem;">Iniciar scan →</a>
     </div>
-    <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menú">☰</button>
-  </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#services">Servicios</a>
-    <a href="#pricing">Precios</a>
-    <a href="#how">Cómo funciona</a>
-    <a href="/blog">Blog</a>
-    <a href="#contact">Contacto</a>
-    <div class="lang-switcher">
-      <a href="/" class="active">EN</a>
-      <a href="/es.html">ES</a>
-      <a href="/he.html">HE</a>
-      <a href="/ar.html">AR</a>
-    </div>
-    <a href="#contact" class="btn btn-primary btn-full">Comenzar →</a>
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
 <section id="hero">
   <div class="hero-glow"></div>
   <div class="container">
     <div class="hero-grid">
       <div class="hero-content">
-        <div class="hero-eyebrow">
-          <span>🎯</span> Inteligencia Digital para Empresas que Quieren Ganar
-        </div>
-        <picture style="height:64px;width:auto;margin-bottom:16px;display:block;">
-        <source srcset="/images/logo.webp" type="image/webp">
-        <img src="/images/logo-sm.webp" alt="Clarvix" width="40" height="40" style="height:64px;width:auto;margin-bottom:16px;display:block;" onerror="this.style.display='none'">
-      </picture>
-        <h1 class="hero-title">
-          Tus competidores<br>se están <em>comiendo tus leads</em>.
-        </h1>
-        <p class="hero-sub">
-          Clarvix te da los datos exactos de por qué tu presencia digital no convierte,
-          trabajadores digitales AI que tu equipo de ventas necesita, y los sistemas de IA para automatizar tus ingresos publicitarios.
-        </p>
+        <div class="hero-eyebrow"><span>🎯</span> Inteligencia de ingresos AI-first para pymes en Israel</div>
+        <h1 class="hero-title">Detén fugas de ingresos<br>antes de que se conviertan en <em>clientes perdidos</em>.</h1>
+        <p class="hero-sub">Clarvix usa agentes de IA para detectar dónde los leads, medición, formularios, llamadas, WhatsApp y presupuesto publicitario pierden ingresos. Se empieza con un scan público sin credenciales y se avanza a verificación conectada read-only cuando existe una razón comercial clara.</p>
         <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary btn-lg">Obtén tu Auditoría — Desde $97 →</a>
-          <a href="#services" class="btn btn-ghost btn-lg">Descargar Muestra Gratis</a>
+          <a href="#pricing" class="btn btn-primary btn-lg">Iniciar Revenue Leak Scan →</a>
+          <a href="#security" class="btn btn-ghost btn-lg">Ver modelo seguro</a>
         </div>
-            <p style="font-size:0.95rem;color:rgba(255,255,255,0.7);margin-top:12px;">🔒 No necesitamos acceso a tu backend. Solo tu URL.</p>
+        <p style="font-size:0.78rem;color:var(--text-dim);margin-top:8px;">Tier 1 requiere solo una URL. Los tiers conectados usan acceso read-only mediante secret_ref — nunca credenciales raw.</p>
         <div class="hero-stats">
-          <div>
-            <div class="stat-num">8</div>
-            <div class="stat-lbl">Categorías Auditadas</div>
-          </div>
-          <div>
-            <div class="stat-num">48h</div>
-            <div class="stat-lbl">Entrega</div>
-          </div>
-          <div>
-            <div class="stat-num">4</div>
-            <div class="stat-lbl">Idiomas</div>
-          </div>
-          <div>
-            <div class="stat-num">100%</div>
-            <div class="stat-lbl">Basado en Datos</div>
-          </div>
+          <div><div class="stat-num">8+</div><div class="stat-lbl">Hallazgos AI</div></div>
+          <div><div class="stat-num">0</div><div class="stat-lbl">Credenciales públicas</div></div>
+          <div><div class="stat-num">4</div><div class="stat-lbl">Tiers de servicio</div></div>
+          <div><div class="stat-num">AI</div><div class="stat-lbl">En cada servicio</div></div>
         </div>
       </div>
-
-      <!-- Score card visual -->
       <div class="hero-visual">
         <div class="score-card">
-          <div class="score-top">
-            <div>
-              <div class="score-label">Lead Conversion Score</div>
-              <div class="score-num critical">47<span style="font-size:1.4rem;opacity:0.5">/100</span></div>
-            </div>
-            <span class="badge badge-gold">Informe Muestra</span>
-          </div>
-          <div class="score-status critical">⚠ CRÍTICO — Pérdida Activa de Leads</div>
+          <div class="score-top"><div><div class="score-label">Revenue Leak Risk</div><div class="score-num critical">High</div></div><span class="badge badge-gold">Muestra</span></div>
+          <div class="score-status critical">⚠ AI FINDING — riesgo activo de fuga de ingresos</div>
           <div class="score-bars">
-            <div class="bar-item">
-              <div class="bar-meta"><span class="bar-name">Embudo de Conversión</span><span class="bar-pts" style="color:var(--danger)">7/20</span></div>
-              <div class="bar-track"><div class="bar-fill fill-r" style="width:35%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-meta"><span class="bar-name">Seguimiento y Atribución</span><span class="bar-pts" style="color:var(--danger)">2/15</span></div>
-              <div class="bar-track"><div class="bar-fill fill-r" style="width:13%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-meta"><span class="bar-name">Velocidad y UX</span><span class="bar-pts" style="color:var(--warn)">8/15</span></div>
-              <div class="bar-track"><div class="bar-fill fill-y" style="width:53%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-meta"><span class="bar-name">Presencia Local (GBP)</span><span class="bar-pts" style="color:var(--warn)">9/15</span></div>
-              <div class="bar-track"><div class="bar-fill fill-y" style="width:60%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-meta"><span class="bar-name">Claridad de la Oferta</span><span class="bar-pts" style="color:var(--danger)">4/10</span></div>
-              <div class="bar-track"><div class="bar-fill fill-r" style="width:40%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-meta"><span class="bar-name">SEO Técnico</span><span class="bar-pts" style="color:var(--success)">8/10</span></div>
-              <div class="bar-track"><div class="bar-fill fill-g" style="width:80%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-meta"><span class="bar-name">Confianza y Seguridad</span><span class="bar-pts" style="color:var(--warn)">6/10</span></div>
-              <div class="bar-track"><div class="bar-fill fill-y" style="width:60%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-meta"><span class="bar-name">Velocidad de Respuesta</span><span class="bar-pts" style="color:var(--danger)">3/5</span></div>
-              <div class="bar-track"><div class="bar-fill fill-y" style="width:60%"></div></div>
-            </div>
+            <div class="bar-item"><div class="bar-meta"><span class="bar-name">Flujo de leads</span><span class="bar-pts" style="color:var(--danger)">Leak</span></div><div class="bar-track"><div class="bar-fill fill-r" style="width:35%"></div></div></div>
+            <div class="bar-item"><div class="bar-meta"><span class="bar-name">Tracking & Attribution</span><span class="bar-pts" style="color:var(--danger)">Unverified</span></div><div class="bar-track"><div class="bar-fill fill-r" style="width:13%"></div></div></div>
+            <div class="bar-item"><div class="bar-meta"><span class="bar-name">Llamadas / WhatsApp</span><span class="bar-pts" style="color:var(--warn)">Risk</span></div><div class="bar-track"><div class="bar-fill fill-y" style="width:60%"></div></div></div>
+            <div class="bar-item"><div class="bar-meta"><span class="bar-name">Señales públicas de píxel</span><span class="bar-pts" style="color:var(--success)">Visible</span></div><div class="bar-track"><div class="bar-fill fill-g" style="width:80%"></div></div></div>
           </div>
-          <div class="score-footer">
-            <span class="score-domain">example-business.com</span>
-            <span class="score-tag">10 Hallazgos Críticos →</span>
-          </div>
+          <div class="score-footer"><span class="score-domain">example-clinic.co.il</span><span class="score-tag">8+ AI Findings →</span></div>
         </div>
-        <div class="float-el float-1">📊 <span>vs 3 competidores</span></div>
-        <div class="float-el float-2">✅ <span>Plan de acción 30 días</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== SERVICES OVERVIEW ===== -->
-
-    
-
-    <section id="services" class="section">
+<section id="services" class="section">
   <div class="container">
     <div class="section-header">
-      <span class="badge badge-blue">Lo Que Hacemos</span>
-      <h2>Tres servicios. Un objetivo:<br>más ingresos para tu negocio.</h2>
-      <p>Ya sea que necesites arreglar tu presencia digital, llenar tu pipeline de ventas o automatizar tus ingresos publicitarios con IA — Clarvix entrega.</p>
+      <span class="badge badge-blue">Qué hace Clarvix</span>
+      <h2>Cuatro tiers AI-first.<br>Un objetivo: recuperar ingresos medibles.</h2>
+      <p>Clarvix separa inteligencia pública segura de verificación conectada read-only y monitorización recurrente. Cada tier usa agentes de IA, validación, audit logs y recomendaciones con revisión humana.</p>
     </div>
     <div class="services-grid">
       <div class="svc-card svc-1">
         <div class="svc-icon svc-icon-1">🔍</div>
-        <h3>Auditoría de Presencia Digital</h3>
-        <p>Puntuamos tu sitio web en 8 dimensiones críticas y te mostramos exactamente por qué estás perdiendo leads — con datos, benchmarks y un plan de acción de 30 días.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">Lead Conversion Score</span>
-          <span class="svc-tag">Benchmark vs Competidores</span>
-          <span class="svc-tag">Informe PDF</span>
-          <span class="svc-tag">Entrega 48h</span>
-        </div>
-        <a href="#audit" class="svc-link">Ver más →</a>
+        <h3>Revenue Leak Scan</h3>
+        <p>Scan público con IA, sin credenciales, para web, landing pages, CTAs, formularios, teléfono/WhatsApp, confianza y riesgos visibles de tracking.</p>
+        <div class="svc-tags"><span class="svc-tag">No credentials</span><span class="svc-tag">8+ AI findings</span><span class="svc-tag">Spanish ready</span></div>
       </div>
-
+      <div class="svc-card svc-2">
+        <div class="svc-icon svc-icon-2">🔒</div>
+        <h3>Revenue Leak Verify Lite</h3>
+        <p>Verificación conectada read-only mediante secret_ref para GA4, Search Console, GTM o Ads — sin exponer credenciales raw.</p>
+        <div class="svc-tags"><span class="svc-tag">Read-only</span><span class="svc-tag">secret_ref only</span><span class="svc-tag">Audit logged</span></div>
+      </div>
       <div class="svc-card svc-3">
         <div class="svc-icon svc-icon-3">⚡</div>
-        <h3>Sistemas AdTech con IA</h3>
-        <p>Construimos arquitecturas autónomas de agentes de IA para empresas de publicidad programática — optimización de ingresos, detección de anomalías y gestión de inventario en piloto automático.</p>
-        <div class="svc-tags">
-          <span class="svc-tag">CrewAI / LangGraph</span>
-          <span class="svc-tag">Integración MCP</span>
-          <span class="svc-tag">Listo para Producción</span>
-          <span class="svc-tag">Agentes Personalizados</span>
-        </div>
-        <a href="#adtech" class="svc-link">Ver más →</a>
+        <h3>Revenue Leak Monitor & AdTech Control Tower</h3>
+        <p>Monitorización AI recurrente de attribution, funnels, ads, CRM/calls y anomalías — con aprobación humana para cualquier acción write o riesgosa.</p>
+        <div class="svc-tags"><span class="svc-tag">Daily monitor</span><span class="svc-tag">Executive brief</span><span class="svc-tag">Human approval</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== SERVICE 1: AUDIT ===== -->
-<section id="audit" class="detail-section alt">
+<section id="security" class="detail-section alt">
   <div class="container">
     <div class="detail-grid">
       <div class="detail-content">
-        <span class="badge badge-blue">Service 01 — Auditoría de Presencia Digital</span>
-        <h2>Tu sitio web tiene una puntuación.<br>Simplemente no lo sabes <span class="highlight">todavía</span>.</h2>
-        <p>La mayoría de los dueños de negocios sienten que algo está mal con su presencia digital pero no pueden cuantificarlo. Clarvix te da un Lead Conversion Score de 0 a 100 — y la hoja de ruta exacta para arreglarlo.</p>
+        <span class="badge badge-blue">Security-first</span>
+        <h2>Empezamos sin credenciales.<br>Conectamos solo cuando tiene sentido comercial.</h2>
+        <p>El modelo Clarvix reduce fricción y riesgo: un tier público sin credenciales y tiers conectados con permisos read-only mediante secret_ref.</p>
         <ul class="feat-list">
-          <li class="feat-item">
-            <div class="feat-ico feat-ico-b">✓</div>
-            <div class="feat-txt">
-              <strong>Lead Conversion Score (0–100)</strong>
-              <span>8 categorías analizadas: velocidad, seguimiento, embudo, SEO, presencia local, confianza, claridad de oferta, velocidad de respuesta.</span>
-            </div>
-          </li>
-          <li class="feat-item">
-            <div class="feat-ico feat-ico-b">✓</div>
-            <div class="feat-txt">
-              <strong>Top 10 Hallazgos Críticos</strong>
-              <span>Cada hallazgo tiene evidencia, impacto en el negocio, una solución concreta y estimación de esfuerzo.</span>
-            </div>
-          </li>
-          <li class="feat-item">
-            <div class="feat-ico feat-ico-b">✓</div>
-            <div class="feat-txt">
-              <strong>Benchmark de Competidores</strong>
-              <span>Te comparamos contra 3 competidores directos en 10 métricas. Ve exactamente dónde estás perdiendo.</span>
-            </div>
-          </li>
-          <li class="feat-item">
-            <div class="feat-ico feat-ico-b">✓</div>
-            <div class="feat-txt">
-              <strong>Plan de Acción 30 Días</strong>
-              <span>Priorizado por impacto y esfuerzo. Primero los elementos CRÍTICOS. Sin relleno. Solo qué hacer y en qué orden.</span>
-            </div>
-          </li>
-          <li class="feat-item">
-            <div class="feat-ico feat-ico-b">✓</div>
-            <div class="feat-txt">
-              <strong>PDF Profesional de 10 Páginas</strong>
-              <span>Entregado en 48 horas. Presentable a tu equipo, inversionista o agencia.</span>
-            </div>
-          </li>
+          <li class="feat-item"><div class="feat-ico feat-ico-b">✓</div><div class="feat-txt"><strong>Tenant isolation</strong><span>Cada cliente queda separado en rutas y workspace propios.</span></div></li>
+          <li class="feat-item"><div class="feat-ico feat-ico-b">✓</div><div class="feat-txt"><strong>Input validation</strong><span>URL, tier, mercado, idiomas y conectores se validan antes de ejecutar.</span></div></li>
+          <li class="feat-item"><div class="feat-ico feat-ico-b">✓</div><div class="feat-txt"><strong>secret_ref only</strong><span>No aceptamos tokens, contraseñas o API keys raw en prompts, logs, reports, chats o formularios.</span></div></li>
+          <li class="feat-item"><div class="feat-ico feat-ico-b">✓</div><div class="feat-txt"><strong>Human approval</strong><span>Ninguna acción de escritura o riesgo se ejecuta automáticamente.</span></div></li>
         </ul>
-        <div class="cta-row">
-          <a href="#pricing" class="btn btn-primary">Ver Precios →</a>
-          <a href="#contact" class="btn btn-ghost">Obtener una Muestra Gratis</a>
-        </div>
       </div>
-      <div>
-        <div class="detail-panel">
-          <div class="panel-header">
-            <div class="panel-dot dot-r"></div>
-            <div class="panel-dot dot-y"></div>
-            <div class="panel-dot dot-g"></div>
-            <h4>Tu Informe de Auditoría de 10 Páginas</h4>
-          </div>
-          <div class="deliverable-list">
-            <div class="deliverable-item">
-              <span class="deliv-icon">📋</span>
-              <div class="deliv-text">
-                <strong>Portada</strong>
-                <span>Nombre del negocio, puntuación, fecha, estado (Crítico / Necesita Trabajo / Bueno)</span>
-              </div>
-            </div>
-            <div class="deliverable-item">
-              <span class="deliv-icon">📊</span>
-              <div class="deliv-text">
-                <strong>Resumen Ejecutivo</strong>
-                <span>4 KPIs, texto de diagnóstico, tabla de PageSpeed</span>
-              </div>
-            </div>
-            <div class="deliverable-item">
-              <span class="deliv-icon">📈</span>
-              <div class="deliv-text">
-                <strong>Desglose de Puntuación</strong>
-                <span>8 barras de progreso coloreadas + caja de puntuación total</span>
-              </div>
-            </div>
-            <div class="deliverable-item">
-              <span class="deliv-icon">🔍</span>
-              <div class="deliv-text">
-                <strong>Top 10 Hallazgos (4 páginas)</strong>
-                <span>EXISTE / FALTA / IMPACTO / SOLUCIÓN / ESFUERZO por hallazgo</span>
-              </div>
-            </div>
-            <div class="deliverable-item">
-              <span class="deliv-icon">⚔️</span>
-              <div class="deliv-text">
-                <strong>Competitor Benchmark</strong>
-                <span>You vs 3 competidores across 10 metrics</span>
-              </div>
-            </div>
-            <div class="deliverable-item">
-              <span class="deliv-icon">🗓️</span>
-              <div class="deliv-text">
-                <strong>Plan de Acción 30 Días</strong>
-                <span>Acciones priorizadas con días y responsable</span>
-              </div>
-            </div>
-            <div class="deliverable-item">
-              <span class="deliv-icon">⚡</span>
-              <div class="deliv-text">
-                <strong>Página de Próximos Pasos</strong>
-                <span>3 acciones concretas: Configurar rastreo / Rápidas Ganancias / Monitoreo Mensual</span>
-              </div>
-            </div>
-          </div>
+      <div class="detail-panel">
+        <div class="panel-header"><div class="panel-dot dot-g"></div><h4>Tiers Clarvix AAS</h4></div>
+        <div class="security-note">
+          <div class="tier-badge">Tier 1 Public: Revenue Leak Scan</div>
+          <div class="tier-badge">Tier 1 Connected: Verify Lite</div>
+          <div class="tier-badge">Tier 2: Revenue Leak Monitor</div>
+          <div class="tier-badge">Tier 3: AdTech Control Tower</div>
+          <p>Si se necesita conexión privada, el cliente hace onboarding seguro en su navegador normal. Clarvix guarda una referencia secret_ref y ejecuta verificaciones read-only hasta que exista aprobación explícita para cualquier otra acción.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== SERVICE 3: ADTECH AI ===== -->
-<section id="adtech" class="detail-section alt">
-  <div class="container">
-    <div class="detail-grid">
-      <div class="detail-content">
-        <span class="badge badge-purple">Service 03 — Sistemas AdTech con IA</span>
-        <h2>Agentes de IA que optimizan<br>tus ingresos publicitarios <span class="highlight">24/7</span>.</h2>
-        <p>Construimos sistemas personalizados de agentes de IA autónomos para empresas de publicidad programática. Optimización de ingresos, detección de anomalías, asignación de inventario — todo corriendo en piloto automático mientras escalas.</p>
-        <ul class="feat-list">
-          <li class="feat-item">
-            <div class="feat-ico feat-ico-p">✓</div>
-            <div class="feat-txt">
-              <strong>Agentes de Optimización de Ingresos</strong>
-              <span>Maximiza el rendimiento del inventario de editores en múltiples SSPs automáticamente.</span>
-            </div>
-          </li>
-          <li class="feat-item">
-            <div class="feat-ico feat-ico-p">✓</div>
-            <div class="feat-txt">
-              <strong>Agentes de Detección de Anomalías</strong>
-              <span>Detecta caídas de ingresos, picos de tráfico e irregularidades en pujas antes de que afecten tu resultado final.</span>
-            </div>
-          </li>
-          <li class="feat-item">
-            <div class="feat-ico feat-ico-p">✓</div>
-            <div class="feat-txt">
-              <strong>Agentes de Asignación de Inventario</strong>
-              <span>Distribución inteligente de inventario entre fuentes de demanda para máxima tasa de llenado y eCPM.</span>
-            </div>
-          </li>
-          <li class="feat-item">
-            <div class="feat-ico feat-ico-p">✓</div>
-            <div class="feat-txt">
-              <strong>Integración MCP y RAG</strong>
-              <span>Construimos sobre tu infraestructura de datos existente — servidores MCP propios, bases de datos SQL, APIs.</span>
-            </div>
-          </li>
-          <li class="feat-item">
-            <div class="feat-ico feat-ico-p">✓</div>
-            <div class="feat-txt">
-              <strong>Despliegue en Producción</strong>
-              <span>Backends FastAPI, Docker/K8s, integración de bot de Slack. De base a producción.</span>
-            </div>
-          </li>
-        </ul>
-        <div style="margin-top:4px;font-size:0.83rem;color:var(--text-muted);margin-bottom:28px;">
-          Construido para: SSPs, DSPs, Redes de Editores, Redes de Publicidad, Equipos de Gestión de Rendimiento
-        </div>
-        <div class="cta-row">
-          <a href="#pricing" class="btn btn-primary" style="background:var(--purple);">Ver Planes AdTech →</a>
-          <a href="#contact" class="btn btn-ghost">Reservar Llamada de Descubrimiento</a>
-        </div>
-        <div style="margin-top:12px;">
-          <a href="clarvix-adtech-ai-agents-es.pdf" target="_blank" class="btn btn-ghost" style="font-size:0.82rem;padding:6px 14px;border-color:var(--purple);color:var(--purple);">📄 Descargar Brief del Servicio (PDF)</a>
-        </div>
-      </div>
-      <div>
-        <div class="detail-panel">
-          <div class="panel-header">
-            <div class="panel-dot" style="background:var(--purple)"></div>
-            <h4>Arquitectura de Agentes — Muestra</h4>
-          </div>
-          <div class="agent-panel">
-            <div class="agent-item">
-              <div class="agent-icon a-ico-p">📈</div>
-              <div class="agent-txt">
-                <strong>Agente Optimizador de Ingresos</strong>
-                <span>Monitorea precios límite, eCPMs, patrones de demanda → ajusta en tiempo real</span>
-              </div>
-              <span class="agent-arrow">→</span>
-            </div>
-            <div class="agent-item">
-              <div class="agent-icon a-ico-b">🚨</div>
-              <div class="agent-txt">
-                <strong>Agente Detector de Anomalías</strong>
-                <span>Observa tráfico, tasas de llenado, ingresos — alerta en desviaciones ≥ 15%</span>
-              </div>
-              <span class="agent-arrow">→</span>
-            </div>
-            <div class="agent-item">
-              <div class="agent-icon a-ico-g">⚖️</div>
-              <div class="agent-txt">
-                <strong>Agente Asignador de Inventario</strong>
-                <span>Distribuye oferta en SSPs para maximizar rendimiento por impresión</span>
-              </div>
-              <span class="agent-arrow">→</span>
-            </div>
-            <div class="agent-item">
-              <div class="agent-icon" style="background:rgba(245,158,11,0.12);font-size:1rem;">💬</div>
-              <div class="agent-txt">
-                <strong>Bot de Reportes de Slack</strong>
-                <span>Resúmenes diarios + alertas en tiempo real al canal de tu equipo</span>
-              </div>
-              <span class="agent-arrow">→</span>
-            </div>
-          </div>
-          <div class="stack-tags">
-            <span class="stack-tag">CrewAI</span>
-            <span class="stack-tag">LangGraph</span>
-            <span class="stack-tag">MCP</span>
-            <span class="stack-tag">FastAPI</span>
-            <span class="stack-tag">SQLite / PostgreSQL</span>
-            <span class="stack-tag">Docker</span>
-            <span class="stack-tag">RAG</span>
-            <span class="stack-tag">Slack API</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section style="padding:60px 20px;background:linear-gradient(135deg,#0a0a0a 0%,#1a1a2e 100%);">
-      <div style="max-width:900px;margin:0 auto;text-align:center;">
-        <h2 style="font-size:1.8rem;color:#fff;margin-bottom:8px;">Lo que dicen nuestros clientes</h2>
-        <p style="color:rgba(255,255,255,0.6);margin-bottom:24px;">Empresas reales. Resultados reales.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:32px;"><span style="background:rgba(99,102,241,0.15);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.8rem;">Restaurantes</span>
-          <span style="background:rgba(99,102,241,0.15);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.8rem;">Clínicas Dentales</span>
-          <span style="background:rgba(99,102,241,0.15);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.8rem;">Firmas Legales</span>
-          <span style="background:rgba(99,102,241,0.15);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.8rem;">E-commerce</span>
-          <span style="background:rgba(99,102,241,0.15);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.8rem;">Bienes Raíces</span>
-          <span style="background:rgba(99,102,241,0.15);color:#818cf8;padding:6px 14px;border-radius:20px;font-size:0.8rem;">SaaS</span></div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-bottom:32px;">
-          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:24px;text-align:left;">
-            <div style="color:#f59e0b;margin-bottom:8px;">★★★★★</div>
-            <p style="color:rgba(255,255,255,0.85);font-size:0.95rem;line-height:1.5;margin-bottom:12px;">"El audit reveló 3 problemas críticos de SEO que nos costaban ~40% del tráfico. En 2 semanas, nuestro tráfico orgánico subió un 28%."</p>
-            <div style="display:flex;align-items:center;gap:10px;">
-              <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#8b5cf6);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:0.85rem;">MR</div>
-              <div><div style="color:#fff;font-size:0.85rem;font-weight:600;">Marco R.</div><div style="color:rgba(255,255,255,0.5);font-size:0.75rem;">CEO, Restaurante • Ciudad de México</div></div>
-            </div>
-          </div>
-          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:24px;text-align:left;">
-            <div style="color:#f59e0b;margin-bottom:8px;">★★★★★</div>
-            <p style="color:rgba(255,255,255,0.85);font-size:0.95rem;line-height:1.5;margin-bottom:12px;">"Pensé que mi sitio estaba bien. El informe de Clarvix me mostró que mi página cargaba en 8.2s en móvil. Después de las optimizaciones, bajamos a 2.1s y las conversiones subieron un 35%."</p>
-            <div style="display:flex;align-items:center;gap:10px;">
-              <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#ec4899,#f43f5e);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:0.85rem;">SL</div>
-              <div><div style="color:#fff;font-size:0.85rem;font-weight:600;">Sarah L.</div><div style="color:rgba(255,255,255,0.5);font-size:0.75rem;">Directora Marketing • Austin, TX</div></div>
-            </div>
-          </div>
-          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:24px;text-align:left;">
-            <div style="color:#f59e0b;margin-bottom:8px;">★★★★★</div>
-            <p style="color:rgba(255,255,255,0.85);font-size:0.95rem;line-height:1.5;margin-bottom:12px;">"El benchmark competitivo fue revelador. Descubrimos que 4 competidores nos superaban en cada métrica. El plan de acción de 30 días nos puso por delante en 3 semanas."</p>
-            <div style="display:flex;align-items:center;gap:10px;">
-              <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#10b981,#059669);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:0.85rem;">DK</div>
-              <div><div style="color:#fff;font-size:0.85rem;font-weight:600;">David K.</div><div style="color:rgba(255,255,255,0.5);font-size:0.75rem;">Fundador SaaS • Tel Aviv</div></div>
-            </div>
-          </div></div>
-        <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;"><div style="text-align:center;"><div style="font-size:1.5rem;font-weight:700;color:#6366f1;">4.9</div><div style="color:rgba(255,255,255,0.5);font-size:0.8rem;">Calificación promedio</div></div>
-          <div style="text-align:center;"><div style="font-size:1.5rem;font-weight:700;color:#6366f1;">48h</div><div style="color:rgba(255,255,255,0.5);font-size:0.8rem;">Entrega</div></div>
-          <div style="text-align:center;"><div style="font-size:1.5rem;font-weight:700;color:#6366f1;">100%</div><div style="color:rgba(255,255,255,0.5);font-size:0.8rem;">Satisfacción</div></div></div>
-      </div>
-    </section>
-
-<!-- ===== PRICING ===== -->
 <section id="pricing" class="section">
   <div class="container">
     <div class="section-header">
-      <span class="badge badge-gold">Precios</span>
-      <h2>Precios transparentes.<br>Resultados reales.</h2>
-      <p>Sin retainers. Sin entregables vagos. Sabes exactamente qué pagas y qué recibes.</p>
+      <span class="badge badge-gold">Tiers</span>
+      <h2>Start public. Verify safely.<br>Monitor what matters.</h2>
+      <p>Separación clara entre public intelligence y connected read-only verification.</p>
     </div>
-    <div class="pricing-panels">
-      <!-- AUDIT PRICING -->
-      <div class="pricing-accordion-item">
-        <button class="pricing-acc-header active" onclick="toggleAccordion('audit-p', this)">
-          <span class="acc-icon">🔍</span>
-          <span class="acc-title">Auditoría de Presencia Digital</span>
-          <span class="acc-range">₪350 – ₪700 <span style="font-size:0.75rem;opacity:0.6">única vez</span></span>
-          <span class="acc-arrow">▼</span>
-        </button>
-      <div id="audit-p" class="acc-panel open">
-        <div class="pricing-grid">
-          <div class="p-card">
-            <div class="p-tier">Básico</div>
-            <div class="p-name">Auditoría Básica</div>
-            <div class="p-desc">Diagnóstico rápido y preciso. Entregado en 48 horas.</div>
-            <div class="p-price"><span class="p-currency">₪</span><span class="p-amount">350</span></div>
-            <div class="p-period">única vez</div>
-            <hr class="p-divider">
-            <ul class="p-features">
-              <li class="p-feat"><span class="ck">✓</span><span>Lead Conversion Score (0–100)</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Análisis de 8 categorías</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Top 5 hallazgos críticos con soluciones</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Plan de acción 14 días</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>PDF profesional 8–10 páginas</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Entrega 48 horas</span></li>
-              <li class="p-feat"><span class="cx">–</span><span style="opacity:0.5">Análisis de redes sociales</span></li>
-              <li class="p-feat"><span class="cx">–</span><span style="opacity:0.5">Benchmark de competidores</span></li>
-            </ul>
-            <a href="#contact" class="btn btn-ghost btn-full">Comenzar</a>
-          </div>
-          <div class="p-card featured">
-            <span class="popular-pill">Más Popular</span>
-            <div class="p-tier">Estándar</div>
-            <div class="p-name">Auditoría Completa</div>
-            <div class="p-desc">Auditoría profunda + inteligencia social + 3 competidores. La mayoría de los clientes eligen esta.</div>
-            <div class="p-price"><span class="p-currency">₪</span><span class="p-amount">500</span></div>
-            <div class="p-period">única vez</div>
-            <hr class="p-divider">
-            <ul class="p-features">
-              <li class="p-feat"><span class="ck">✓</span><span>Todo en Auditoría Básica</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>10 hallazgos + benchmark 3 competidores</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Análisis profundo de redes sociales (FB / IG / WA / TikTok)</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Reseñas GBP + análisis de sentimiento AI</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Plan de acción priorizado 30 días</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>PDF profesional 12–15 páginas</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Entrega 5 días</span></li>
-            </ul>
-            <a href="#contact" class="btn btn-primary btn-full">Comenzar</a>
-          </div>
-          <div class="p-card">
-            <div class="p-tier">Premium</div>
-            <div class="p-name">Inteligencia Total</div>
-            <div class="p-desc">La auditoría más completa — 15 hallazgos, datos de autoridad, puntuaciones AI exclusivas y rescan gratuito a los 90 días.</div>
-            <div class="p-price"><span class="p-currency">₪</span><span class="p-amount">700</span></div>
-            <div class="p-period">única vez</div>
-            <hr class="p-divider">
-            <ul class="p-features">
-              <li class="p-feat"><span class="ck">✓</span><span>Todo en Auditoría Completa</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>15 hallazgos + backlinks / DR / tráfico (Ahrefs)</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>5 puntuaciones de inteligencia AI (exclusivo Clarvix)</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Consistencia NAP + preparación GEO para búsqueda AI</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Hoja de ruta 30+60 días con hitos semanales</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>PDF profesional 18–22 páginas</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Rescan de progreso gratuito a los 90 días</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Entrega prioritaria (3 días)</span></li>
-            </ul>
-            <a href="#contact" class="btn btn-ghost btn-full">Comenzar</a>
-          </div>
-        </div>
-        <p style="text-align:center;font-size:0.83rem;color:var(--text-dim);margin-top:20px;">
-          También disponible en <a href="https://fiverr.com" target="_blank" rel="noopener">Fiverr</a> ·
-          ¿Necesitas implementación? Pregunta por nuestros <strong style="color:var(--text-muted)">Paquete de Corrección de Rastreo</strong> (₪290–₪550) y <strong style="color:var(--text-muted)">Corrección Rápida GBP</strong> (₪220–₪370) complementos.
-          · 💳 <strong style="color:var(--text-muted)">Pagos internacionales seguros vía <a href="https://payoneer.com" target="_blank" rel="noopener" style="color:var(--accent)">Payoneer</a></strong> — disponible desde Israel, LATAM y en todo el mundo. <a href="#contact" style="color:var(--accent)">Contáctanos para pagar →</a>
-        </p>
-          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);border-radius:8px;padding:8px 16px;margin-top:12px;"><span style="font-size:0.85rem;color:#ef4444;font-weight:600;">🔥 Precios de lanzamiento — disponibilidad limitada a estas tarifas</span></div>
-      </div><!-- end acc-panel audit-p -->
-      </div><!-- end accordion-item -->
-
-      <!-- AI EMPLOYEE PRICING -->
-      <div class="pricing-accordion-item">
-        <button class="pricing-acc-header" onclick="toggleAccordion('aiemployee-p', this)">
-          <span class="acc-icon">🤖</span>
-          <span class="acc-title">Recepcionista Inteligente AI</span>
-          <span class="acc-range">₪1,200 – ₪5,500 <span style="font-size:0.75rem;opacity:0.6">por mes</span></span>
-          <span class="acc-arrow">▼</span>
-        </button>
-      <div id="aiemployee-p" class="acc-panel">
-        <p style="text-align:center;font-size:0.83rem;color:var(--text-dim);margin-bottom:20px;">
-          🤖 <strong style="color:var(--text-muted)">Un recepcionista AI cuesta menos que una secretaria part-time</strong> — trabaja 24/7, 5 idiomas, cero días de enfermedad.
-        </p>
-        <div class="pricing-grid">
-          <div class="p-card">
-            <div class="p-tier">Nivel 1</div>
-            <div class="p-name">Recepcionista Inteligente</div>
-            <div class="p-desc">Agente WhatsApp AI 24/7. Responde, captura leads, agenda citas y pide reseñas.</div>
-            <div class="p-price"><span class="p-currency">₪</span><span class="p-amount">1,200</span></div>
-            <div class="p-period">por mes · Configuración ₪2,500</div>
-            <hr class="p-divider">
-            <ul class="p-features">
-              <li class="p-feat"><span class="ck">✓</span><span>Agente WhatsApp AI 24/7</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Respuesta automática en &lt;30 segundos</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Preguntas frecuentes del negocio cargadas</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Captura de leads → gestión automática</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Recordatorios de citas</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Solicitud de reseñas Google</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Reporte de desempeño mensual</span></li>
-              <li class="p-feat"><span class="cx">–</span><span style="opacity:0.5">Instagram / Facebook / X</span></li>
-            </ul>
-            <a href="#contact" class="btn btn-ghost btn-full">Comenzar Ahora</a>
-          </div>
-          <div class="p-card featured">
-            <span class="popular-pill">Más Popular</span>
-            <div class="p-tier">Nivel 2</div>
-            <div class="p-name">Piloto Automático</div>
-            <div class="p-desc">AI multicanal: WhatsApp, Instagram, Facebook y X. Automatización completa de agendamiento.</div>
-            <div class="p-price"><span class="p-currency">₪</span><span class="p-amount">2,800</span></div>
-            <div class="p-period">por mes · Configuración ₪5,000</div>
-            <hr class="p-divider">
-            <ul class="p-features">
-              <li class="p-feat"><span class="ck">✓</span><span>Todo de Recepcionista +</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>WhatsApp + Instagram + Facebook + X</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Agendamiento automático en Google Calendar</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Seguimiento inteligente (24h si sin reserva)</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Cultivo de cliente después del servicio</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Integración con CRM de leads</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Dashboard de analítica semanal</span></li>
-            </ul>
-            <a href="#contact" class="btn btn-primary btn-full">Obtener Piloto Automático</a>
-          </div>
-          <div class="p-card">
-            <div class="p-tier">Nivel 3</div>
-            <div class="p-name">Gerente de Operaciones AI</div>
-            <div class="p-desc">Operaciones AI completas: Base de conocimiento RAG, cotizaciones automáticas, manejo de reclamos y enlaces de pago.</div>
-            <div class="p-price"><span class="p-currency">₪</span><span class="p-amount">5,500</span></div>
-            <div class="p-period">por mes · Configuración ₪10,000</div>
-            <hr class="p-divider">
-            <ul class="p-features">
-              <li class="p-feat"><span class="ck">✓</span><span>Todo de Piloto Automático +</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Base de conocimiento RAG completa</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Cotizaciones y estimaciones automáticas</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Detección automática de idioma (5 idiomas)</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Manejo inteligente de reclamos + escalada</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Resumen diario para dueños en WhatsApp</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Automatización de enlaces de pago</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Soporte prioritario + revisión mensual</span></li>
-            </ul>
-            <a href="#contact" class="btn btn-ghost btn-full">Obtener Gerente de Operaciones</a>
-          </div>
-        </div>
-        <p style="text-align:center;font-size:0.83rem;color:var(--text-dim);margin-top:16px;">
-          💡 <strong style="color:#10b981">Una secretaria humana cuesta ₪5,000–8,000/mes</strong> — nuestro empleado digital hace más, 24/7, por menos de la mitad del precio.
-          · 💳 Pago por transferencia bancaria, Bit o PayBox. <a href="#contact" style="color:var(--accent)">Contáctanos →</a>
-        </p>
-      </div><!-- end acc-panel aiemployee-p -->
-      </div><!-- end accordion-item -->
-
-      <!-- ADTECH PRICING -->
-      <div class="pricing-accordion-item">
-        <button class="pricing-acc-header" onclick="toggleAccordion('adtech-p', this)">
-          <span class="acc-icon">🚀</span>
-          <span class="acc-title">Sistemas AdTech con IA</span>
-          <span class="acc-range">₪5,500 – ₪27,500+ <span style="font-size:0.75rem;opacity:0.6">por proyecto</span></span>
-          <span class="acc-arrow">▼</span>
-        </button>
-      <div id="adtech-p" class="acc-panel">
-        <div class="pricing-grid">
-          <div class="p-card">
-            <div class="p-tier">Fase 1</div>
-            <div class="p-name">Descubrimiento y Hoja de Ruta</div>
-            <div class="p-desc">Auditoría de tu stack tecnológico actual + plan de arquitectura de agentes IA personalizados.</div>
-            <div class="p-price"><span class="p-currency">₪</span><span class="p-amount">5,500</span></div>
-            <div class="p-period">única vez por proyecto</div>
-            <hr class="p-divider">
-            <ul class="p-features">
-              <li class="p-feat"><span class="ck">✓</span><span>Auditoría de infraestructura de datos</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Diseño de arquitectura de agentes (personalizado)</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Evaluación de integración MCP/API</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Hoja de ruta de implementación técnica</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Modelo de proyección de ROI</span></li>
-              <li class="p-feat"><span class="cx">–</span><span style="opacity:0.5">Desarrollo de agentes</span></li>
-            </ul>
-            <a href="#contact" class="btn btn-ghost btn-full">Reservar Llamada de Descubrimiento</a>
-          </div>
-          <div class="p-card featured">
-            <span class="popular-pill">Mejor Valor</span>
-            <div class="p-tier">Fase 2</div>
-            <div class="p-name">Construcción y Pruebas</div>
-            <div class="p-desc">3 agentes IA personalizados construidos, probados y listos para tu entorno de staging.</div>
-            <div class="p-price"><span class="p-currency">₪</span><span class="p-amount">13,000</span></div>
-            <div class="p-period">única vez por proyecto</div>
-            <hr class="p-divider">
-            <ul class="p-features">
-              <li class="p-feat"><span class="ck">✓</span><span>Todo en Descubrimiento</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>3 agentes autónomos construidos</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Framework CrewAI / LangGraph</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Integración de pipeline MCP y RAG</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Bot de Slack para alertas del equipo</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Despliegue en entorno de staging</span></li>
-            </ul>
-            <a href="#contact" class="btn btn-primary btn-full" style="background:var(--purple);">Iniciar Construcción</a>
-          </div>
-          <div class="p-card">
-            <div class="p-tier">Fase 3</div>
-            <div class="p-name">Sistema de Producción</div>
-            <div class="p-desc">Despliegue completo en producción + 30 días de soporte + transferencia al equipo.</div>
-            <div class="p-price"><span class="p-currency">₪</span><span class="p-amount">27,500</span></div>
-            <div class="p-period">+ por proyecto</div>
-            <hr class="p-divider">
-            <ul class="p-features">
-              <li class="p-feat"><span class="ck">✓</span><span>Todo en Construcción y Pruebas</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Backend de producción FastAPI</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Despliegue Docker / K8s</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>30 días de soporte post-lanzamiento</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Transferencia al equipo y documentación</span></li>
-              <li class="p-feat"><span class="ck">✓</span><span>Retainer continuo disponible</span></li>
-            </ul>
-            <a href="#contact" class="btn btn-ghost btn-full">Reservar Llamada de Descubrimiento</a>
-          </div>
-        </div>
-        <p style="text-align:center;font-size:0.83rem;color:var(--text-dim);margin-top:20px;">
-          Todos los proyectos de AdTech AI comienzan con una <strong style="color:var(--text-muted)">llamada de descubrimiento gratuita de 30 minutos</strong>.
-          Definimos el alcance juntos antes de que te comprometas a nada. <a href="#contact">Reserva la tuya →</a>
-          · 💳 <strong style="color:var(--text-muted)">Pagos internacionales seguros vía <a href="https://payoneer.com" target="_blank" rel="noopener" style="color:var(--accent)">Payoneer</a></strong>. <a href="#contact" style="color:var(--accent)">Contáctanos para pagar →</a>
-        </p>
-      </div><!-- end acc-panel adtech-p -->
-      </div><!-- end accordion-item -->
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== HOW IT WORKS ===== -->
-<section id="how" class="section" style="background:var(--bg2);">
-  <div class="container">
-    <div class="section-header">
-      <span class="badge badge-blue">Process</span>
-      <h2>Simple. Rápido. Con Impacto.</h2>
-      <p>Desde tu primer mensaje hasta un resultado entregado — sin complejidad, sin llamadas interminables.</p>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <h3>Nos cuentas tu situación</h3>
-        <p>Llena el formulario de contacto. Cuéntanos tu sitio web, tipo de negocio y qué necesitas. Respondemos en 24 horas con una propuesta a medida.</p>
+    <div class="pricing-grid">
+      <div class="p-card">
+        <div class="p-tier">Tier 1 Public</div><div class="p-name">Revenue Leak Scan</div><div class="p-desc">Scan público sin credenciales. Solo URL.</div>
+        <div class="p-price"><span class="p-currency">₪</span><span class="p-amount">350</span></div><div class="p-period">one-time launch scan</div>
+        <hr class="p-divider"><ul class="p-features"><li class="p-feat"><span class="ck">✓</span><span>Public website and landing-page scan</span></li><li class="p-feat"><span class="ck">✓</span><span>CTA, call, WhatsApp and form review</span></li><li class="p-feat"><span class="ck">✓</span><span>8+ AI findings</span></li><li class="p-feat"><span class="ck">✓</span><span>No private data access</span></li></ul>
       </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <h3>Nosotros hacemos el trabajo</h3>
-        <p>Nuestro equipo (y nuestros agentes de IA) analizan tu presencia digital, encuentran tus leads ideales o diseñan tu sistema de IA. Tú no mueves un dedo.</p>
+      <div class="p-card featured">
+        <span class="popular-pill">Best first upgrade</span><div class="p-tier">Tier 1 Connected</div><div class="p-name">Revenue Leak Verify Lite</div><div class="p-desc">Verificación read-only de los hallazgos críticos.</div>
+        <div class="p-price"><span class="p-currency">₪</span><span class="p-amount">900</span></div><div class="p-period">one-time verification</div>
+        <hr class="p-divider"><ul class="p-features"><li class="p-feat"><span class="ck">✓</span><span>Everything in Tier 1 Public</span></li><li class="p-feat"><span class="ck">✓</span><span>GA4/GSC/GTM via secret_ref</span></li><li class="p-feat"><span class="ck">✓</span><span>No raw credentials</span></li></ul>
       </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <h3>Obtienes resultados reales</h3>
-        <p>Un PDF con tu Lead Conversion Score. Una hoja de cálculo con leads verificados. O un sistema de IA funcionando. Datos. Claridad. Acción.</p>
+      <div class="p-card">
+        <div class="p-tier">Tier 2 / Tier 3</div><div class="p-name">Monitor & Control Tower</div><div class="p-desc">Monitorización AI recurrente y brief ejecutivo.</div>
+        <div class="p-price"><span class="p-currency">₪</span><span class="p-amount">2,500+</span></div><div class="p-period">monthly, scoped by connectors</div>
+        <hr class="p-divider"><ul class="p-features"><li class="p-feat"><span class="ck">✓</span><span>Daily/intraday monitoring</span></li><li class="p-feat"><span class="ck">✓</span><span>Audit logs and tenant isolation</span></li><li class="p-feat"><span class="ck">✓</span><span>Human approval queue</span></li></ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FAQ ===== -->
-<section id="faq" class="section">
-  <div class="container">
-    <div class="section-header">
-      <span class="badge badge-blue">FAQ</span>
-      <h2>Preguntas Frecuentes</h2>
-    </div>
-    <div class="faq-grid">
-      <div class="faq-item">
-        <div class="faq-q">¿Necesitan acceso a mi backend?</div>
-        <div class="faq-a">No. La auditoría estándar es 100% no intrusiva — solo necesitamos tu URL. El acceso de solo lectura a GA4/GSC hace la auditoría más profunda pero no es obligatorio.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">¿Cuánto tarda la auditoría?</div>
-        <div class="faq-a">Plan Básico: 48 horas. Estándar: 5 días. Premium: 3 días (prioridad). El reloj empieza cuando proporcionas tu info, no cuando pagas.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">¿Qué mercados e idiomas atienden?</div>
-        <div class="faq-a">Atendemos negocios en inglés (US, UK, AU), español (LATAM, España), hebreo (Israel) y árabe (Israel, MENA). Los informes se entregan en tu idioma preferido.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">¿Pueden ayudar a implementar las recomendaciones?</div>
-        <div class="faq-a">Sí. Ofrecemos complementos de implementación: Pack de Corrección de Rastreo ($80–$150), Corrección Rápida GBP ($60–$100) y Mejoras Rápidas de Velocidad ($80–$150). Pregunta al ordenar.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">¿Qué hace diferente a Clarvix de una agencia normal?</div>
-        <div class="faq-a">No hacemos opiniones. Cada hallazgo tiene evidencia verificable, impacto en el negocio en números, y un fix concreto. El Lead Conversion Score es consistente y comparable. Sin relleno.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">¿Trabajan fuera de Fiverr?</div>
-        <div class="faq-a">Sí. Puedes hacer pedidos directamente desde esta página — especialmente para proyectos de Auditoría Digital y AdTech AI. Aceptamos pagos internacionales a través de <strong>Payoneer</strong> (desde cualquier país), transferencia bancaria y Fiverr. Contáctanos y te enviaremos una solicitud de pago directa.</div>
-      </div>
-    </div>
-  
-          <div class="faq-item">
-            <div class="faq-question">¿Vale la pena la inversión? ¿Cuál es el ROI?</div>
-            <div class="faq-answer"><p>Un solo problema crítico no detectado puede costarte miles de dólares en ventas perdidas cada mes. Nuestros clientes típicamente recuperan la inversión del audit en las primeras 2-3 semanas de implementar las correcciones.</p></div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">Ya tengo una agencia de marketing. ¿Por qué necesito esto?</div>
-            <div class="faq-answer"><p>Las agencias ejecutan campañas. Nosotros diagnosticamos la base sobre la que esas campañas corren. Nuestro audit complementa a tu agencia — les da los datos para optimizar mejor tu inversión.</p></div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">¿Qué pasa si mi puntuación ya es buena?</div>
-            <div class="faq-answer"><p>Excelente — entonces el audit te confirma que vas bien y te muestra las áreas específicas donde puedes pasar de "bueno" a "excelente". Además, recibes benchmarks contra tus competidores directos.</p></div>
-          </div>
-        </div>
-</section>
-
-<!-- ===== CONTACT ===== -->
 <section id="contact" class="section">
   <div class="container">
     <div class="contact-grid">
       <div class="contact-info">
-        <span class="badge badge-blue" style="margin-bottom:16px;">Contact</span>
-        <h2>¿Listo para dejar de perder leads?</h2>
-        <p>Cuéntanos sobre tu negocio. Respondemos en 24 horas con una recomendación personalizada — sin compromiso.</p>
+        <span class="badge badge-blue" style="margin-bottom:16px;">Contacto</span>
+        <h2>¿Listo para ver dónde se fuga el ingreso?</h2>
+        <p>Envía solo el nombre del negocio y una URL pública. No envíes contraseñas, tokens, API keys ni permisos privados. Si hace falta verificación conectada, preparamos onboarding read-only seguro.</p>
         <div class="contact-points">
-          <div class="c-point">
-            <div class="c-ico">📧</div>
-            <div class="c-txt">
-              <strong>Email</strong>
-              <span>contact@clarvix.net</span>
-            </div>
-          </div>
-          <div class="c-point">
-            <div class="c-ico">⏱</div>
-            <div class="c-txt">
-              <strong>Tiempo de Respuesta</strong>
-              <span>Dentro de 24 horas, siempre</span>
-            </div>
-          </div>
-          <div class="c-point">
-            <div class="c-ico">🌍</div>
-            <div class="c-txt">
-              <strong>Idiomas</strong>
-              <span>Israel, Latin America, USA, UK, Australia, Canada</span>
-            </div>
-          </div>
-          <div class="c-point">
-            <div class="c-ico">🛒</div>
-            <div class="c-txt">
-              <strong>También en Fiverr</strong>
-              <span>Encuéntranos en fiverr.com/clarvix para órdenes rápidas</span>
-            </div>
-          </div>
+          <div class="c-point"><div class="c-ico">📧</div><div class="c-txt"><strong>Email</strong><span>contact@clarvix.net</span></div></div>
+          <div class="c-point"><div class="c-ico">🔒</div><div class="c-txt"><strong>No raw credentials</strong><span>secret_ref/read-only only for connected tiers</span></div></div>
+          <div class="c-point"><div class="c-ico">🌍</div><div class="c-txt"><strong>Market</strong><span>Israel-first, soporte ES/HE/AR/EN</span></div></div>
         </div>
       </div>
-      <div>
-        <div class="contact-form-card">
-          <div id="formWrapper">
-            <h3 style="color:#fff;margin-bottom:6px;">Envíanos un mensaje</h3>
-            <p style="font-size:0.85rem;margin-bottom:24px;">Analizaremos tu situación y responderemos con nuestra recomendación.</p>
-            <form id="contactForm" action="https://clarvixdigital.app.n8n.cloud/webhook/clarvix-contact" method="POST">
-              <input type="hidden" name="_subject" value="New Clarvix Inquiry — contact@clarvix.net">
-              <input type="hidden" name="_to" value="contact@clarvix.net">
-              <div class="form-row2">
-                <div class="form-group">
-                  <label>Tu Nombre *</label>
-                  <input type="text" name="name" placeholder="John Smith" required="">
-                </div>
-                <div class="form-group">
-                  <label>Email del Negocio *</label>
-                  <input type="email" name="email" id="contactEmail" placeholder="john@company.com" required="" oninput="document.getElementById('replyto').value=this.value">
-                  <input type="hidden" name="_replyto" id="replyto">
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Empresa / Sitio Web</label>
-                <input type="text" name="company" placeholder="company.com or Company Name">
-              </div>
-              <div class="form-group">
-                <label>Me interesa *</label>
-                <select name="service">
-                  <option value="" disabled="" selected="">Selecciona un servicio...</option>
-                  <option value="Auditoría de Presencia Digital">🔍 Auditoría de Presencia Digital ($97–$195)</option>
-                  <option value="Sistemas AdTech con IA">🤖 Sistemas AdTech con IA ($1,500–$7,500)</option>
-                  <option value="Not sure">💬 Not sure — help me decide</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Cuéntanos sobre tu negocio</label>
-                <textarea name="message" placeholder="What's your main challenge right now? (optional but helps us give you a better answer)"></textarea>
-              </div>
-                            <!-- Anti-spam honeypot – hidden from real users -->
-              <input type="text" name="_gotcha" style="display:none!important" tabindex="-1" autocomplete="off" aria-hidden="true">
-<button type="submit" class="btn btn-primary btn-full" style="font-size:1rem;padding:16px;">
-                Enviar Mensaje →
-              </button>
-              <p class="form-note">Te respondemos en 24 horas. Sin spam.</p>
-              <p style="font-size:0.72rem;color:var(--text-dim);margin-top:8px;text-align:center;">Al enviar, aceptas nuestra <a href="/privacy-policy.html" style="color:var(--accent);">Política de Privacidad</a>
-      <a href="/accessibility.html" style="color:var(--text-dim);text-decoration:underline;">Declaración de Accesibilidad</a>.</p>
-            </form>
-          </div>
-          <div class="form-success" id="formSuccess">
-            <div class="form-success-icon">✅</div>
-            <h3>¡Mensaje recibido!</h3>
-            <p>Analizaremos tu situación y te responderemos en 24 horas con nuestra recomendación.</p>
-            <br>
-            <p style="font-size:0.83rem;"><strong style="color:var(--text)">Datos. Claridad. Acción.</strong></p>
-          </div>
-        </div>
+      <div class="contact-form-card">
+        <h3 style="color:#fff;margin-bottom:6px;">Empieza de forma segura</h3>
+        <p style="font-size:0.9rem;line-height:1.7;color:var(--text-muted);">La vía segura: envía nombre del negocio y URL pública a contact@clarvix.net. No incluyas credenciales. Clarvix responderá con la recomendación de tier: Public Scan, Verify Lite, Monitor o Control Tower.</p>
+        <a href="mailto:contact@clarvix.net?subject=Clarvix%20Revenue%20Leak%20Scan&body=Nombre%20del%20negocio:%0AURL%20pública:%0AMercado:%20Israel%0AIdioma%20preferido:%20Español%0A%0ANota:%20No%20incluyo%20credenciales." class="btn btn-primary btn-full" style="font-size:1rem;padding:16px;">Enviar solicitud segura por email →</a>
+        <p class="form-note">No envíes contraseñas, tokens ni API keys. El onboarding connected se realiza por separado, read-only y con secret_ref.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/" class="logo">
-      <picture>
-      <source srcset="/images/logo.webp" type="image/webp">
-      <img src="/images/logo-sm.webp" alt="Clarvix" width="40" height="40" onerror="this.style.display='none'">
-    </picture>
-      <span class="logo-text">Clarvix</span>
-        </a>
-        <p>Auditorías digitales respaldadas por datos, trabajadores digitales AI y sistemas IA para publicidad programática. No hacemos opiniones — hacemos evidencia.</p>
-        <div class="footer-tagline">DATOS. CLARIDAD. ACCIÓN.</div>
-        <div class="footer-social">
-          <a href="https://facebook.com/clarvixdigital" class="social-btn" target="_blank" rel="noopener" title="Facebook">📘</a>
-          <a href="https://instagram.com/clarvix" class="social-btn" target="_blank" rel="noopener" title="Instagram">📸</a>
-          <a href="https://linkedin.com/company/clarvix" class="social-btn" target="_blank" rel="noopener" title="LinkedIn">💼</a>
-          <a href="https://x.com/clarvix" class="social-btn" target="_blank" rel="noopener" title="X (Twitter)">𝕏</a>
-          <a href="https://fiverr.com/clarvix" class="social-btn" target="_blank" rel="noopener" title="Fiverr">⭐</a>
-        </div>
+        <a href="/es.html" class="logo"><img src="/images/logo-sm.webp" alt="Clarvix" width="40" height="40" onerror="this.style.display='none'"><span class="logo-text">Clarvix</span></a>
+        <p>AI-first revenue leak scans, connected read-only verification, monitoring, and AdTech Control Tower. No hacemos opiniones: trabajamos con evidencia.</p>
+        <div class="footer-tagline">FACTS. CLARITY. ACTION.</div>
       </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul class="footer-links">
-          <li><a href="#audit">Auditoría de Presencia Digital</a></li>
-          <li><a href="#adtech">Sistemas AdTech con IA</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Empresa</h4>
-        <ul class="footer-links">
-          <li><a href="#how">Cómo Funciona</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contacto</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Mercados</h4>
-        <ul class="footer-links">
-          <li><a href="/">English</a></li>
-          <li><a href="/es.html">Español</a></li>
-          <li><a href="/he.html">עברית</a></li>
-          <li><a href="/ar.html">العربية</a></li>
-        </ul>
-      </div>
+      <div class="footer-col"><h4>Servicios</h4><ul class="footer-links"><li><a href="#services">Revenue Leak Scan</a></li><li><a href="#security">Verify Lite / secret_ref</a></li><li><a href="#pricing">Monitor & Control Tower</a></li></ul></div>
+      <div class="footer-col"><h4>Idiomas</h4><ul class="footer-links"><li><a href="/">English</a></li><li><a href="/es.html">Español</a></li><li><a href="/he.html">עברית</a></li><li><a href="/ar.html">العربية</a></li></ul></div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Clarvix. Todos los derechos reservados.</span>
-      <a href="/privacy-policy.html" style="color:var(--text-dim);text-decoration:underline;">Política de Privacidad</a>
-      <span>contact@clarvix.net</span>
-    </div>
+    <div class="footer-bottom"><span>© 2026 Clarvix. All rights reserved.</span><a href="/privacy-policy.html" style="color:var(--text-dim);text-decoration:underline;">Privacy Policy</a><span>contact@clarvix.net</span></div>
   </div>
 </footer>
-
-<script src="app.js" defer></script>
-<script>
-// Pricing tab switch
-function switchTab(panelId) {
-  document.querySelectorAll('.pricing-panels > div').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.p-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById(panelId).classList.add('active');
-  event.target.classList.add('active');
-}
-
-// Mobile menu
-function toggleMenu() {
-  document.getElementById('mobileMenu').classList.toggle('open');
-}
-
-// Close menu on link click
-document.querySelectorAll('#mobileMenu a').forEach(a => {
-  a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
-});
-
-// Accordion pricing
-function toggleAccordion(panelId, btn) {
-  const panel = document.getElementById(panelId);
-  const isOpen = panel.classList.contains('open');
-  panel.classList.toggle('open', !isOpen);
-  panel.style.maxHeight = isOpen ? '0' : panel.scrollHeight + 'px';
-  btn.classList.toggle('active', !isOpen);
-}
-// Init accordion heights on load
-window.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.acc-panel.open').forEach(function(p) {
-    p.style.maxHeight = p.scrollHeight + 'px';
-  });
-});
-
-// Contact form
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-
-  // ── Rate limiting: 1 submission per 60s per session ──────────────
-  var lastSub = sessionStorage.getItem('clarvix_last_contact');
-  if (lastSub && (Date.now() - parseInt(lastSub)) < 60000) {
-    alert('Por favor espera un momento antes de enviar otro mensaje.');
-    return;
-  }
-
-  // ── Honeypot check ────────────────────────────────────────────────
-  if (document.querySelector('input[name="_gotcha"]').value !== '') return;
-
-  // ── Sanitize helper (strip HTML/script tags, trim, limit length) ──
-  function sanitize(val, maxLen) {
-    if (!val) return '';
-    // Strip HTML tags
-    val = val.replace(/<[^>]*>/g, '');
-    // Strip potential script injections
-    val = val.replace(/javascript:/gi, '').replace(/on\w+\s*=/gi, '');
-    // Trim and limit
-    return val.trim().substring(0, maxLen || 1000);
-  }
-
-  // ── Validate & sanitize each field ───────────────────────────────
-  var nameEl    = this.querySelector('input[name="name"]');
-  var emailEl   = this.querySelector('input[name="email"]');
-  var companyEl = this.querySelector('input[name="company"]');
-  var serviceEl = this.querySelector('select[name="service"]');
-  var msgEl     = this.querySelector('textarea[name="message"]');
-
-  var name    = sanitize(nameEl    ? nameEl.value    : '', 120);
-  var email   = sanitize(emailEl   ? emailEl.value   : '', 200);
-  var company = sanitize(companyEl ? companyEl.value : '', 200);
-  var service = sanitize(serviceEl ? serviceEl.value : '', 80);
-  var message = sanitize(msgEl     ? msgEl.value     : '', 3000);
-
-  if (name.length < 2) {
-    alert('Por favor ingresa tu nombre (al menos 2 caracteres).');
-    return;
-  }
-  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-    alert('Por favor ingresa un email válido.');
-    return;
-  }
-
-  // Write sanitized values back
-  if (nameEl)    nameEl.value    = name;
-  if (emailEl)   emailEl.value   = email;
-  if (companyEl) companyEl.value = company;
-  if (serviceEl) serviceEl.value = service;
-  if (msgEl)     msgEl.value     = message;
-
-  var btn = this.querySelector('button[type="submit"]');
-  var origText = btn.textContent;
-  btn.textContent = 'Enviando…';
-  btn.disabled = true;
-
-  try {
-    var formData = new FormData(this);
-    var resp = await fetch(this.action, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    });
-    if (resp.ok) {
-      sessionStorage.setItem('clarvix_last_contact', Date.now().toString());
-      document.getElementById('formWrapper').style.display = 'none';
-      var succ = document.getElementById('formSuccess');
-      if (succ) succ.style.display = 'block';
-    } else {
-      throw new Error('Server error ' + resp.status);
-    }
-  } catch (err) {
-    btn.textContent = origText;
-    btn.disabled = false;
-    alert('Algo salió mal. Inténtalo de nuevo o envíanos un email a contact@clarvix.net');
-  }
-});
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-  const nb = document.getElementById('navbar');
-  nb.style.background = window.scrollY > 50 ? 'rgba(8,13,26,0.98)' : 'rgba(8,13,26,0.88)';
-});
-</script>
-
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/69d245151772311c3585e35c/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
-  <!-- Cookie Consent Banner -->
-  <div id="cookieConsent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(13,21,38,0.97);border-top:1px solid rgba(30,60,110,0.55);padding:16px 24px;z-index:10000;backdrop-filter:blur(12px);">
-    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-      <p style="color:#94a3b8;font-size:0.82rem;margin:0;flex:1;min-width:280px;">Usamos cookies y herramientas de análisis (Google Analytics, Facebook Pixel) para mejorar tu experiencia. Al continuar navegando, aceptas nuestra <a href="/privacy-policy.html" style="color:#1a6bff;">Política de Privacidad</a>.</p>
-      <div style="display:flex;gap:8px;">
-        <button onclick="acceptCookies()" style="background:#1a6bff;color:#fff;border:none;padding:8px 20px;border-radius:8px;cursor:pointer;font-size:0.82rem;font-weight:600;">Aceptar</button>
-        <button onclick="declineCookies()" style="background:transparent;color:#94a3b8;border:1px solid rgba(30,60,110,0.55);padding:8px 16px;border-radius:8px;cursor:pointer;font-size:0.82rem;">Rechazar</button>
-      </div>
-    </div>
-  </div>
-  <script>
-  (function(){
-    if(!localStorage.getItem('clarvix_cookies')){
-      document.getElementById('cookieConsent').style.display='block';
-    }
-  })();
-  function acceptCookies(){localStorage.setItem('clarvix_cookies','accepted');document.getElementById('cookieConsent').style.display='none';}
-  function declineCookies(){localStorage.setItem('clarvix_cookies','declined');document.getElementById('cookieConsent').style.display='none';}
-  </script>
-  <!-- Noa Voice Call Button (VAPI) -->
-  <button id="noaCallBtn" class="noa-call-float" aria-label="Habla con Noa, nuestra asistente AI" title="Habla con Noa - Asistente AI" onclick="toggleNoaCall()">
-    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#fff" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
-  </button>
-  <div class="noa-tooltip">Habla con Noa - Asistente AI</div>
-
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/972539464262?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20los%20servicios%20de%20Clarvix" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="Chat with us on WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#fff" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
-  <!-- VAPI Web SDK for Noa Voice Bot -->
-<script>
-var noaActive=false;
-(function(d,t){
-  var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-  g.src="https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
-  g.defer=true;g.async=true;
-  s.parentNode.insertBefore(g,s);
-  g.onload=function(){
-    window.vapiSDK.run({
-      apiKey:"b827f987-1761-41ac-a2c7-87e955a05e35",
-      assistant:"868eda25-2c4d-4ae4-ae2b-83c3378322f6",
-      config:{}
-    });
-    var hide=function(){
-      var vb=document.getElementById("vapi-support-btn");
-      if(vb){vb.style.display="none";}
-      else{setTimeout(hide,200);}
-    };
-    hide();
-    var v=window.vapiSDK.vapi;
-    v.on("call-start",function(){
-      document.getElementById("noaCallBtn").classList.add("noa-active");noaActive=true;
-    });
-    v.on("call-end",function(){
-      document.getElementById("noaCallBtn").classList.remove("noa-active");noaActive=false;
-    });
-    v.on("error",function(e){
-      console.error("Noa error:",e);
-      document.getElementById("noaCallBtn").classList.remove("noa-active");noaActive=false;
-    });
-  };
-})(document,"script");
-function toggleNoaCall(){
-  if(!window.vapiSDK||!window.vapiSDK.vapi){console.warn("Noa SDK still loading...");return;}
-  if(noaActive){window.vapiSDK.vapi.stop();}
-  else{window.vapiSDK.vapi.start("868eda25-2c4d-4ae4-ae2b-83c3378322f6");}
-}
-</script>
-</body>
-</html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-<\!-- Clarvix Accessibility Widget IS 5568 -->
-<script src="/accessibility-widget.js" defer></script>
-
 </body>
 </html>
