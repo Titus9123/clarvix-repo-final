@@ -967,7 +967,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="contact-form-card">
           <h3 style="color:#fff;margin-bottom:6px;">Start safely</h3>
           <p style="font-size:0.9rem;line-height:1.7;color:var(--text-muted);margin-bottom:24px;">The safe first step: send only your business name and public website URL to contact@clarvix.net. Do not send credentials. Clarvix will reply with the right tier recommendation: Public Scan, Verify Lite, Monitor or Control Tower.</p>
-          <a href="mailto:contact@clarvix.net?subject=Clarvix%20Revenue%20Leak%20Scan&body=Business%20name:%0AWebsite%20URL:%0AMarket:%20Israel%0APreferred%20language:%20English%0A%0ANote:%20No%20credentials%20included." class="btn btn-primary btn-full" style="font-size:1rem;padding:16px;">Send safe email request →</a>
+          <form class="clarvix-public-scan-form" action="https://n8n.clarvix.net/webhook/clarvix/public-scan-http" method="POST" style="display:grid;gap:12px;margin-top:18px;">
+          <input type="hidden" name="tier" value="tier1_public">
+          <input type="hidden" name="market" value="IL">
+          <input type="hidden" name="languages" value="he,en">
+          <input type="hidden" name="source" value="clarvix_landing">
+          <input type="hidden" name="source_language" value="en">
+          <p class="form-note" style="margin:0;text-align:start;">Submit only public business information. This triggers the Clarvix self-hosted n8n intake for Tier 1 Public; connected tiers still use separate read-only secret_ref onboarding.</p>
+          <div class="form-group"><label>Business name *</label><input type="text" name="name" required maxlength="120" autocomplete="organization"></div>
+          <div class="form-group"><label>Public website URL *</label><input type="url" name="website" required placeholder="https://example.com" autocomplete="url"></div>
+          <div class="form-group"><label>Business email *</label><input type="email" name="email" required autocomplete="email"></div>
+          <button type="submit" class="btn btn-primary btn-full" style="font-size:1rem;padding:16px;">Run secure public scan →</button>
+          <p class="form-note">No passwords, tokens, API keys or private account access. Public scan payload includes no connectors.</p>
+        </form>
+        <div class="form-success clarvix-public-scan-success" hidden><div class="form-success-icon">✅</div><h3>Revenue Leak Scan intake received</h3><p>Clarvix received the public scan request. No credentials were submitted.</p></div>
+        <p class="form-note" style="margin-top:12px;">Email fallback: <a href="mailto:contact@clarvix.net?subject=Clarvix%20Revenue%20Leak%20Scan&body=Business%20name:%0AWebsite%20URL:%0AMarket:%20Israel%0APreferred%20language:%20English%0A%0ANote:%20No%20credentials%20included." class="btn btn-primary btn-full" style="font-size:1rem;padding:16px;">Send safe email request →</a></p>
           <p class="form-note">Do not send passwords, tokens or API keys. Connected onboarding is handled separately, read-only and with secret_ref.</p>
           <p style="font-size:0.72rem;color:var(--text-dim);margin-top:8px;text-align:center;">See our <a href="/privacy-policy.html" style="color:var(--accent);">Privacy Policy</a> and <a href="/accessibility.html" style="color:var(--text-dim);text-decoration:underline;">Accessibility Statement</a>.</p>
         </div>
@@ -1073,6 +1087,43 @@ function toggleMenu() {
 // Close menu on link click
 document.querySelectorAll('#mobileMenu a').forEach(a => {
   a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+});
+
+// Clarvix public scan intake: public data only, no connectors or credentials.
+document.querySelectorAll('.clarvix-public-scan-form').forEach(form => {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    const original = btn ? btn.textContent : '';
+    const success = this.parentElement.querySelector('.clarvix-public-scan-success');
+    if (btn) { btn.textContent = 'Sending secure public scan...'; btn.disabled = true; }
+    const payload = {
+      name: this.elements.name.value.trim(),
+      website: this.elements.website.value.trim(),
+      email: this.elements.email.value.trim(),
+      tier: 'tier1_public',
+      market: this.elements.market.value,
+      languages: this.elements.languages.value,
+      source: this.elements.source.value,
+      source_language: this.elements.source_language.value
+    };
+    try {
+      const resp = await fetch(this.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      if (success) success.hidden = false;
+      this.reset();
+      if (btn) btn.textContent = 'Public scan intake received';
+    } catch (err) {
+      if (btn) { btn.textContent = 'Error — use email fallback below'; btn.disabled = false; }
+      console.warn('Clarvix public scan intake failed', err);
+      return;
+    }
+    setTimeout(() => { if (btn) { btn.textContent = original; btn.disabled = false; } }, 6000);
+  });
 });
 
 // Navbar scroll effect

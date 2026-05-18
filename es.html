@@ -205,7 +205,21 @@
       <div class="contact-form-card">
         <h3 style="color:#fff;margin-bottom:6px;">Empieza de forma segura</h3>
         <p style="font-size:0.9rem;line-height:1.7;color:var(--text-muted);">La vía segura: envía nombre del negocio y URL pública a contact@clarvix.net. No incluyas credenciales. Clarvix responderá con la recomendación de tier: Public Scan, Verify Lite, Monitor o Control Tower.</p>
-        <a href="mailto:contact@clarvix.net?subject=Clarvix%20Revenue%20Leak%20Scan&body=Nombre%20del%20negocio:%0AURL%20pública:%0AMercado:%20Israel%0AIdioma%20preferido:%20Español%0A%0ANota:%20No%20incluyo%20credenciales." class="btn btn-primary btn-full" style="font-size:1rem;padding:16px;">Enviar solicitud segura por email →</a>
+        <form class="clarvix-public-scan-form" action="https://n8n.clarvix.net/webhook/clarvix/public-scan-http" method="POST" style="display:grid;gap:12px;margin-top:18px;">
+          <input type="hidden" name="tier" value="tier1_public">
+          <input type="hidden" name="market" value="IL">
+          <input type="hidden" name="languages" value="he,en">
+          <input type="hidden" name="source" value="clarvix_landing">
+          <input type="hidden" name="source_language" value="es">
+          <p class="form-note" style="margin:0;text-align:start;">Envía solo información pública del negocio. Esto activa el intake self-hosted de Clarvix para Tier 1 Public; los tiers conectados siguen con onboarding separado read-only mediante secret_ref.</p>
+          <div class="form-group"><label>Nombre del negocio *</label><input type="text" name="name" required maxlength="120" autocomplete="organization"></div>
+          <div class="form-group"><label>URL pública *</label><input type="url" name="website" required placeholder="https://example.com" autocomplete="url"></div>
+          <div class="form-group"><label>Email de negocio *</label><input type="email" name="email" required autocomplete="email"></div>
+          <button type="submit" class="btn btn-primary btn-full" style="font-size:1rem;padding:16px;">Ejecutar scan público seguro →</button>
+          <p class="form-note">No envíes contraseñas, tokens, API keys ni accesos privados. El payload Public Scan no incluye connectors.</p>
+        </form>
+        <div class="form-success clarvix-public-scan-success" hidden><div class="form-success-icon">✅</div><h3>Revenue Leak Scan intake received</h3><p>Clarvix received the public scan request. No credentials were submitted.</p></div>
+        <p class="form-note" style="margin-top:12px;">Email fallback: <a href="mailto:contact@clarvix.net?subject=Clarvix%20Revenue%20Leak%20Scan&body=Nombre%20del%20negocio:%0AURL%20pública:%0AMercado:%20Israel%0AIdioma%20preferido:%20Español%0A%0ANota:%20No%20incluyo%20credenciales." class="btn btn-primary btn-full" style="font-size:1rem;padding:16px;">Enviar solicitud segura por email →</a></p>
         <p class="form-note">No envíes contraseñas, tokens ni API keys. El onboarding connected se realiza por separado, read-only y con secret_ref.</p>
       </div>
     </div>
@@ -226,5 +240,44 @@
     <div class="footer-bottom"><span>© 2026 Clarvix. All rights reserved.</span><a href="/privacy-policy.html" style="color:var(--text-dim);text-decoration:underline;">Privacy Policy</a><span>contact@clarvix.net</span></div>
   </div>
 </footer>
+<script src="/app.js" defer></script>
+<script>
+// Clarvix public scan intake: public data only, no connectors or credentials.
+document.querySelectorAll('.clarvix-public-scan-form').forEach(form => {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    const original = btn ? btn.textContent : '';
+    const success = this.parentElement.querySelector('.clarvix-public-scan-success');
+    if (btn) { btn.textContent = 'Sending secure public scan...'; btn.disabled = true; }
+    const payload = {
+      name: this.elements.name.value.trim(),
+      website: this.elements.website.value.trim(),
+      email: this.elements.email.value.trim(),
+      tier: 'tier1_public',
+      market: this.elements.market.value,
+      languages: this.elements.languages.value,
+      source: this.elements.source.value,
+      source_language: this.elements.source_language.value
+    };
+    try {
+      const resp = await fetch(this.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      if (success) success.hidden = false;
+      this.reset();
+      if (btn) btn.textContent = 'Public scan intake received';
+    } catch (err) {
+      if (btn) { btn.textContent = 'Error — use email fallback below'; btn.disabled = false; }
+      console.warn('Clarvix public scan intake failed', err);
+      return;
+    }
+    setTimeout(() => { if (btn) { btn.textContent = original; btn.disabled = false; } }, 6000);
+  });
+});
+</script>
 </body>
 </html>
