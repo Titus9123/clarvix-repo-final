@@ -218,6 +218,7 @@
           <div class="form-group"><label>שם העסק *</label><input type="text" name="name" required maxlength="120" autocomplete="organization"></div>
           <div class="form-group"><label>URL ציבורי *</label><input type="url" name="website" required placeholder="https://example.com" autocomplete="url"></div>
           <div class="form-group"><label>אימייל עסקי *</label><input type="email" name="email" required autocomplete="email"></div>
+          <input type="text" name="company" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;" class="clarvix-honeypot">
           <button type="submit" class="btn btn-primary btn-full" style="font-size:1rem;padding:16px;">הרץ סריקה ציבורית מאובטחת →</button>
           <p class="form-note">לא לשלוח סיסמאות, tokens, API keys או גישה פרטית. payload של Public Scan לא כולל connectors.</p>
         </form>
@@ -261,7 +262,8 @@ document.querySelectorAll('.clarvix-public-scan-form').forEach(form => {
       market: this.elements.market.value,
       languages: this.elements.languages.value,
       source: this.elements.source.value,
-      source_language: this.elements.source_language.value
+      source_language: this.elements.source_language.value,
+      company: this.elements.company ? this.elements.company.value.trim() : ''
     };
     try {
       const resp = await fetch(this.action, {

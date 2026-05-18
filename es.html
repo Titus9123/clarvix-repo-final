@@ -215,6 +215,7 @@
           <div class="form-group"><label>Nombre del negocio *</label><input type="text" name="name" required maxlength="120" autocomplete="organization"></div>
           <div class="form-group"><label>URL pública *</label><input type="url" name="website" required placeholder="https://example.com" autocomplete="url"></div>
           <div class="form-group"><label>Email de negocio *</label><input type="email" name="email" required autocomplete="email"></div>
+          <input type="text" name="company" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;" class="clarvix-honeypot">
           <button type="submit" class="btn btn-primary btn-full" style="font-size:1rem;padding:16px;">Ejecutar scan público seguro →</button>
           <p class="form-note">No envíes contraseñas, tokens, API keys ni accesos privados. El payload Public Scan no incluye connectors.</p>
         </form>
@@ -258,7 +259,8 @@ document.querySelectorAll('.clarvix-public-scan-form').forEach(form => {
       market: this.elements.market.value,
       languages: this.elements.languages.value,
       source: this.elements.source.value,
-      source_language: this.elements.source_language.value
+      source_language: this.elements.source_language.value,
+      company: this.elements.company ? this.elements.company.value.trim() : ''
     };
     try {
       const resp = await fetch(this.action, {
