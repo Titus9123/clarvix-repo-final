@@ -809,7 +809,8 @@ footer {
 }
 
 /* Redesigned Clarvix conversion landing — research-informed layout */
-.clarvix-logo-lockup { gap: 12px; min-width: max-content; }
+.clarvix-logo-lockup { gap: 12px; min-width: max-content; justify-content:center; }
+.logo.clarvix-logo-lockup { align-items:center; }
 .clarvix-logo-lockup img {
   height: 96px;
   width: 96px;
@@ -846,16 +847,16 @@ html[dir="rtl"] .clarvix-logo-lockup small { display:none; }
 .cvx-safe-line { color: var(--text-dim); font-size: .88rem; margin-top: -36px; margin-bottom: 24px; }
 .cvx-proof-strip { display:flex; flex-wrap:wrap; gap:10px; }
 .cvx-proof-strip span { border:1px solid rgba(96,165,250,.20); background: rgba(255,255,255,.025); color:#d8e7ff; border-radius:999px; padding:7px 12px; font-size:.78rem; font-weight:700; }
-.cvx-signal-panel { position:relative; background: linear-gradient(180deg, rgba(17,29,48,.96), rgba(8,13,26,.96)); border:1px solid rgba(96,165,250,.22); border-radius:28px; padding:28px; box-shadow: 0 28px 80px rgba(0,0,0,.52), inset 0 1px 0 rgba(255,255,255,.05); overflow:hidden; }
+.cvx-signal-panel { position:relative; background: linear-gradient(180deg, rgba(17,29,48,.96), rgba(8,13,26,.96)); border:1px solid rgba(96,165,250,.22); border-radius:28px; padding:28px; box-shadow: 0 28px 80px rgba(0,0,0,.52), inset 0 1px 0 rgba(255,255,255,.05); overflow:hidden; text-align:center; }
 .cvx-signal-panel::before { content:""; position:absolute; inset:-1px; background: radial-gradient(circle at 15% 0%, rgba(34,117,255,.22), transparent 34%); pointer-events:none; }
 .panel-top,.panel-bottom,.cvx-signal-panel ul { position:relative; z-index:1; }
-.panel-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; }
+.panel-top { display:flex; align-items:center; justify-content:center; flex-direction:column; gap:12px; margin-bottom:24px; }
 .panel-top span { display:grid; place-items:center; width:42px; height:42px; border-radius:13px; background:rgba(34,117,255,.14); color:#8ec1ff; font-weight:950; }
 .panel-top strong { color:#fff; font-size:1.05rem; }
 .cvx-signal-panel ul { display:grid; gap:12px; }
-.cvx-signal-panel li { display:flex; align-items:center; gap:10px; color:#d7e3f7; border:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.035); border-radius:14px; padding:13px 14px; font-weight:650; }
+.cvx-signal-panel li { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; color:#d7e3f7; border:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.035); border-radius:14px; padding:14px 16px; font-weight:650; text-align:center; }
 .cvx-signal-panel li span { width:9px; height:9px; border-radius:99px; background:var(--warn); box-shadow:0 0 18px rgba(245,158,11,.55); flex:0 0 auto; }
-.panel-bottom { margin-top:24px; padding-top:18px; border-top:1px solid rgba(255,255,255,.08); display:flex; justify-content:space-between; gap:18px; color:var(--text-dim); font-size:.8rem; }
+.panel-bottom { margin-top:24px; padding-top:18px; border-top:1px solid rgba(255,255,255,.08); display:flex; justify-content:center; align-items:center; gap:18px; color:var(--text-dim); font-size:.8rem; text-align:center; }
 .panel-bottom b { color:#fff; }
 .panel-bottom em { font-style:normal; }
 .cvx-section-focus { background: linear-gradient(180deg, var(--bg2), #09101f); }
@@ -863,7 +864,7 @@ html[dir="rtl"] .clarvix-logo-lockup small { display:none; }
 .cvx-split h2 { margin-top:16px; font-size:clamp(2rem,4vw,3.4rem); line-height:1; letter-spacing:-.045em; text-wrap:balance; }
 .cvx-split p { font-size:1.08rem; max-width:620px; }
 .cvx-leak-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
-.leak-step,.tier-card { background:rgba(255,255,255,.028); border:1px solid rgba(96,165,250,.14); border-radius:20px; padding:26px; box-shadow: inset 0 1px 0 rgba(255,255,255,.04); }
+.leak-step,.tier-card { background:rgba(255,255,255,.028); border:1px solid rgba(96,165,250,.14); border-radius:20px; padding:26px; box-shadow: inset 0 1px 0 rgba(255,255,255,.04); text-align:center; }
 .leak-step span { color:#60a5fa; font-weight:900; font-size:.82rem; letter-spacing:.08em; }
 .leak-step h3 { margin:16px 0 8px; color:#fff; }
 .leak-step p { font-size:.92rem; }
@@ -875,6 +876,7 @@ html[dir="rtl"] .clarvix-logo-lockup small { display:none; }
   min-height:320px;
   display:flex;
   flex-direction:column;
+  align-items:center;
   position:relative;
   overflow:hidden;
   background: linear-gradient(180deg, rgba(17,29,48,.96), rgba(9,16,31,.98));
@@ -917,16 +919,19 @@ html[dir="rtl"] .clarvix-logo-lockup small { display:none; }
 .tier-kicker,.tier-card h3,.tier-card p,.tier-card strong { position:relative; z-index:1; }
 .tier-kicker { color:#7eb8ff; font-size:.76rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; margin-bottom:20px; }
 .tier-card h3 { color:#fff; margin-bottom:12px; letter-spacing:-.025em; font-size:clamp(1.16rem,1.35vw,1.42rem); line-height:1.13; }
-.tier-card p { font-size:.95rem; margin-bottom:26px; color:#aebbd0; line-height:1.58; }
+.tier-card p { font-size:.95rem; margin-bottom:26px; color:#aebbd0; line-height:1.58; text-align:center; }
 .tier-card strong {
   margin-top:auto;
   color:#fff;
   font-size:1.16rem;
   display:flex;
   align-items:center;
+  justify-content:center;
+  text-align:center;
   min-height:58px;
   padding-top:18px;
   border-top:1px solid rgba(255,255,255,.08);
+  width:100%;
 }
 .tier-more {
   position:relative;
@@ -939,19 +944,20 @@ html[dir="rtl"] .clarvix-logo-lockup small { display:none; }
 .tier-detail-stack { display:grid; gap:22px; margin-top:34px; }
 .tier-detail {
   scroll-margin-top:130px;
+  text-align:center;
   background:rgba(255,255,255,.028);
   border:1px solid rgba(96,165,250,.16);
   border-radius:24px;
   padding:26px;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
 }
-.tier-detail-head { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-bottom:20px; }
+.tier-detail-head { display:flex; justify-content:center; gap:16px; align-items:center; margin-bottom:20px; text-align:center; }
 .tier-detail-head span { color:#fff; font-size:1.25rem; font-weight:900; letter-spacing:-.025em; }
 .tier-detail-head a { color:#8fc2ff; border:1px solid rgba(96,165,250,.24); border-radius:999px; padding:4px 10px; }
 .tier-detail-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
-.tier-detail-grid div { background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.06); border-radius:18px; padding:20px; }
+.tier-detail-grid div { background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.06); border-radius:18px; padding:20px; text-align:center; }
 .tier-detail-grid h3 { color:#fff; margin-bottom:8px; font-size:1rem; }
-.tier-detail-grid p { font-size:.93rem; line-height:1.58; }
+.tier-detail-grid p { font-size:.93rem; line-height:1.58; text-align:center; }
 .cvx-process { display:grid; grid-template-columns:.8fr 1.2fr; gap:56px; align-items:center; }
 .cvx-process h2 { margin:16px 0; }
 .cvx-process ol { counter-reset:none; display:grid; gap:12px; }
