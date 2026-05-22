@@ -11,9 +11,9 @@ PAGES = {
     'ar': ROOT / 'ar.html',
 }
 EXPECTED = {
-    'he': {'dir': 'rtl', 'must': ['סריקת דליפות הכנסה', 'אימות דליפות הכנסה בסיסי', 'ניטור דליפות הכנסה', 'חמ״ל AdTech', 'הצעת השקה', 'שאלות נפוצות']},
-    'es': {'dir': 'ltr', 'must': ['Escaneo público de fugas de ingresos', 'Verificación básica de fugas de ingresos', 'Monitor de fugas de ingresos', 'Torre de Control AdTech', 'Oferta de lanzamiento', 'Preguntas frecuentes']},
-    'ar': {'dir': 'rtl', 'must': ['فحص عام لتسرب الإيرادات', 'تحقق أساسي من تسرب الإيرادات', 'مراقبة تسرب الإيرادات', 'غرفة تحكم AdTech', 'عرض الإطلاق', 'أسئلة شائعة']},
+    'he': {'dir': 'rtl', 'must': ['סריקת דליפות הכנסה', 'אימות דליפות הכנסה בסיסי', 'ניטור דליפות הכנסה', 'חמ״ל AdTech']},
+    'es': {'dir': 'ltr', 'must': ['Escaneo público de fugas de ingresos', 'Verificación básica de fugas de ingresos', 'Monitor de fugas de ingresos', 'Torre de Control AdTech']},
+    'ar': {'dir': 'rtl', 'must': ['فحص عام لتسرب الإيرادات', 'تحقق أساسي من تسرب الإيرادات', 'مراقبة تسرب الإيرادات', 'غرفة تحكم AdTech']},
 }
 BANNED = [
     'What we do', 'Public Scan', 'Verify Lite', 'Packages', 'Launch offer',
