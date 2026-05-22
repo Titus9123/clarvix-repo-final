@@ -868,9 +868,30 @@ html[dir="rtl"] .clarvix-logo-lockup small { display:none; }
 .leak-step span { color:#60a5fa; font-weight:900; font-size:.82rem; letter-spacing:.08em; }
 .leak-step h3 { margin:16px 0 8px; color:#fff; }
 .leak-step p { font-size:.92rem; }
-.cvx-launch-card { border:1px solid rgba(245,158,11,.22); background:linear-gradient(135deg, rgba(245,158,11,.10), rgba(34,117,255,.06)); border-radius:26px; padding:34px; display:grid; grid-template-columns:1fr auto; gap:22px; align-items:center; }
-.cvx-launch-card .badge { width:max-content; }
-.cvx-launch-card p { font-size:1.1rem; color:#dbe7f8; }
+.cvx-launch-card {
+  border:1px solid rgba(245,158,11,.22);
+  background:linear-gradient(135deg, rgba(245,158,11,.10), rgba(34,117,255,.06));
+  border-radius:26px;
+  padding:34px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:22px;
+  align-items:center;
+  justify-items:center;
+  text-align:center;
+  overflow:hidden;
+}
+.cvx-launch-card .badge {
+  width:auto;
+  max-width:100%;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  text-align:center;
+  justify-content:center;
+  line-height:1.35;
+}
+.cvx-launch-card p { font-size:1.1rem; color:#dbe7f8; max-width:780px; margin:0 auto; }
+.cvx-launch-card .btn { justify-self:center; max-width:100%; }
 .cvx-tier-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:22px; align-items:stretch; }
 .tier-card {
   min-height:320px;
