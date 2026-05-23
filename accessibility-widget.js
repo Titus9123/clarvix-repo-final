@@ -277,9 +277,21 @@ body.clv-high-contrast img {
   filter: invert(1) brightness(1.5) !important;
 }
 
-body.clv-negative { filter: invert(1) hue-rotate(180deg); }
-body.clv-grayscale { filter: grayscale(100%); }
-body.clv-negative.clv-grayscale { filter: invert(1) hue-rotate(180deg) grayscale(100%); }
+body.clv-negative > :not(#clv-a11y-btn):not(#clv-a11y-panel):not(.wa-fab) { filter: invert(1) hue-rotate(180deg); }
+body.clv-grayscale > :not(#clv-a11y-btn):not(#clv-a11y-panel):not(.wa-fab) { filter: grayscale(100%); }
+body.clv-negative.clv-grayscale > :not(#clv-a11y-btn):not(#clv-a11y-panel):not(.wa-fab) { filter: invert(1) hue-rotate(180deg) grayscale(100%); }
+
+body.clv-negative #clv-a11y-btn,
+body.clv-negative #clv-a11y-panel,
+body.clv-negative .wa-fab,
+body.clv-grayscale #clv-a11y-btn,
+body.clv-grayscale #clv-a11y-panel,
+body.clv-grayscale .wa-fab {
+  filter: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
 
 body.clv-links a {
   outline: 2px solid #ff0 !important;
