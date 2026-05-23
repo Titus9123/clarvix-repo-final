@@ -460,7 +460,7 @@ body.clv-read-font, body.clv-read-font * {
 
   // Close on outside click
   document.addEventListener('click', e => {
-    if (!panel.contains(e.target) && e.target !== btn && panel.classList.contains('open')) {
+    if (!panel.contains(e.target) && !btn.contains(e.target) && panel.classList.contains('open')) {
       panel.classList.remove('open');
       btn.setAttribute('aria-expanded', 'false');
     }
