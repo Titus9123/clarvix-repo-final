@@ -10,6 +10,13 @@
   // ── Language detection ─────────────────────────────────────────────────
   const lang = (document.documentElement.lang || 'he').split('-')[0].toLowerCase();
   const isRTL = (lang === 'he' || lang === 'ar');
+  const statementHref = lang === 'en'
+    ? '/accessibility-en.html'
+    : lang === 'es'
+      ? '/accessibility-es.html'
+      : lang === 'ar'
+        ? '/accessibility-ar.html'
+        : '/accessibility.html';
 
   const T = {
     he: {
@@ -326,11 +333,11 @@ body.clv-read-font, body.clv-read-font * {
   btn.setAttribute('aria-expanded', 'false');
   btn.setAttribute('aria-controls', 'clv-a11y-panel');
   btn.innerHTML = `
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
       <circle cx="12" cy="4" r="2"/>
       <path d="M12 6v6l4 4M12 12l-4 4M8 8H4M20 8h-4M12 18v4"/>
     </svg>
-    ${t.btn}`;
+    <span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">${t.btn}</span>`;
   document.body.appendChild(btn);
 
   // Panel
@@ -388,7 +395,7 @@ body.clv-read-font, body.clv-read-font * {
     <div class="clv-a11y-divider"></div>
 
     <button id="clv-a11y-reset-all">${t.resetAll}</button>
-    <a id="clv-a11y-statement-link" href="/accessibility.html">${t.statement}</a>
+    <a id="clv-a11y-statement-link" href="${statementHref}">${t.statement}</a>
   `;
   document.body.appendChild(panel);
 

@@ -55,7 +55,7 @@
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://embed.tawk.to">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
   <link rel="stylesheet" href="order-modal.css">
   <script>var CONTACT_EMAIL = 'contact@clarvix.net';</script>
   <!-- FB Pixel -->
@@ -75,7 +75,7 @@
   <!-- End Facebook Pixel -->
 <style>
   /* WhatsApp Float Button */
-  .whatsapp-float {
+  .old-wa-float-disabled {
     position: fixed;
     bottom: 24px;
     right: 24px;
@@ -91,40 +91,82 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     text-decoration: none;
   }
-  .whatsapp-float:hover {
+  .old-wa-float-disabled:hover {
     transform: scale(1.12);
     box-shadow: 0 6px 24px rgba(37,211,102,0.65);
   }
 
   </style>
-</head>
+<link rel="stylesheet" href="/style.css"></head>
 
 <body>
-  <!-- NAV -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <div class="logo">
-        <img src="images/logo.webp" alt="Clarvix" class="logo-img">
-        <span class="logo-tag">Auditor&#x00ED;a de Presencia Digital</span>
-      </div>
-      <div class="nav-right">
-        <a href="/es.html#services" class="nav-link">Servicios</a>
-        <a href="#pricing" class="nav-link">Precios</a>
-        <a href="#how-it-works" class="nav-link">C&#x00F3;mo funciona</a>
-        <a href="/blog/" class="nav-link">Blog</a>
-        <div class="lang-toggle">
-          <a href="digital-presence-audit.html" class="lang-btn" onclick="sessionStorage.setItem('clarvix_lang_override','1')">EN</a><span class="lang-sep">|</span>
-          <a href="digital-presence-audit-es.html" class="lang-btn active" onclick="sessionStorage.setItem('clarvix_lang_override','1')">ES</a><span class="lang-sep">|</span>
-          <a href="digital-presence-audit-he.html" class="lang-btn" onclick="sessionStorage.setItem('clarvix_lang_override','1')">HE</a><span class="lang-sep">|</span>
-          <a href="digital-presence-audit-ar.html" class="lang-btn" onclick="sessionStorage.setItem('clarvix_lang_override','1')">AR</a>
-        </div>
-        <button class="btn-primary" onclick="openOrder()">Empezar &#x2192;</button>
-      </div>
-    </div>
-  </nav>
 
+<a href="#main" class="skip-link">Saltar al contenido</a>
+
+<div class="brand-watermark" aria-hidden="true">
+  <svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" fill="none"
+       stroke="#19E3D6" stroke-width="24" stroke-linejoin="miter"
+       stroke-miterlimit="10" stroke-linecap="square">
+    <path d="M 100 5 L 195 65 L 115 125 L 195 185 L 100 245 L 5 185 L 5 65 Z"/>
+  </svg>
+</div>
+
+<nav class="nav" id="navbar" aria-label="Primary">
+  <div class="container nav-row">
+    <a href="/es.html" class="nav-brand" aria-label="Clarvix · home">
+      <svg class="nav-mark" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" fill="none"
+           stroke="#19E3D6" stroke-width="24" stroke-linejoin="miter" stroke-miterlimit="10" aria-hidden="true">
+        <path d="M 100 5 L 195 65 L 115 125 L 195 185 L 100 245 L 5 185 L 5 65 Z"/>
+      </svg>
+      <span class="wordmark">CLARVIX</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/es.html#services">Enfoque</a></li>
+      <li><a href="/es.html#pricing">Paquetes</a></li>
+      <li><a href="/es.html#how">Cómo funciona</a></li>
+      <li><a href="/es.html#resources">Recursos</a></li>
+      <li><a href="/blog/">Blog</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <a href="/index.html">EN</a>
+        <a href="/es.html" class="active" aria-current="page">ES</a>
+        <a href="/he.html">HE</a>
+        <a href="/ar.html">AR</a>
+      </div>
+      <a href="/es.html#contact" class="btn btn-primary">Pedir escaneo público</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="/es.html#services">Enfoque</a>
+      <a href="/es.html#pricing">Paquetes</a>
+      <a href="/es.html#how">Cómo funciona</a>
+      <a href="/es.html#resources">Recursos</a>
+      <a href="/blog/">Blog</a>
+      <div class="mm-lang" role="group" aria-label="Language">
+        <span class="mm-lang-label">IDIOMA</span>
+        <div class="mm-lang-group">
+          <a href="/index.html">EN</a>
+          <a href="/es.html" class="active" aria-current="page">ES</a>
+          <a href="/he.html">HE</a>
+          <a href="/ar.html">AR</a>
+        </div>
+      </div>
+      <a href="/es.html#contact" class="btn btn-primary btn-block">Pedir escaneo público</a>
+    </div>
+  </div>
+</nav>
+
+  <!-- NAV -->
   <!-- HERO -->
-  <section class="hero" id="hero" style="padding-top:92px">
+  <main id="main"><section class="hero" id="hero" style="padding-top:92px">
     <div class="hero-bg-grid"></div>
     <div class="hero-glow"></div>
     <div class="container hero-content">
@@ -294,7 +336,8 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
+  </main>
+<footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
         <img src="images/logo.webp" alt="Clarvix" class="footer-logo-img">
@@ -364,8 +407,42 @@
   <script src="app.js"></script>
 
   <\!-- WhatsApp Float Button (ANAT) -->
-  <a href="https://wa.me/972539464262?text=%C2%A1Hola%5C%21%20Estoy%20interesado%20en%20una%20auditor%C3%ADa%20de%20presencia%20digital%20para%20mi%20negocio." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
+
+
+<a class="wa-fab" href="https://wa.me/972539464262?text=Hola%20Clarvix%2C%20quiero%20hablar%20sobre%20un%20escaneo%20p%C3%BAblico."
+   target="_blank" rel="noopener" aria-label="Chatea con Clarvix en WhatsApp">
+  <span class="wa-pulse" aria-hidden="true"></span>
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+    <path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-2c1.8 1 3.9 1.5 6.3 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.7c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.6 1.2 1.2-4.5-.2-.4c-1.1-1.7-1.7-3.7-1.7-5.8 0-5.6 4.6-10.2 10.2-10.2S26.2 8.9 26.2 14.5 21.6 24.7 16 24.7zm5.6-7.7c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1.1-1.1 2.6 0 1.5 1.1 3 1.3 3.2.2.2 2.2 3.4 5.3 4.7 3.1 1.3 3.1.9 3.7.8.6-.1 1.8-.7 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.3z"/>
+  </svg>
+  <span class="wa-label">Chatear por WhatsApp</span>
+</a>
+
+<script>
+  (function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) { els.forEach(function(el){ el.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  })();
+  (function(){
+    var nav = document.getElementById('navbar');
+    if (!nav) return;
+    var onScroll = function(){ if (window.scrollY > 8) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
+    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  })();
+  (function(){
+    var btn = document.querySelector('.nav-toggle'); var menu = document.getElementById('mobileMenu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      var open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menu.hidden = !open;
+    });
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); menu.hidden = true; btn.setAttribute('aria-expanded','false'); }); });
+  })();
+</script>
+<script src="/accessibility-widget.js" defer></script>
 </body>
 </html>

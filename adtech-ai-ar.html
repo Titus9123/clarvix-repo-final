@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://embed.tawk.to">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
   <link rel="stylesheet" href="order-modal.css">
 
   <!-- Facebook Pixel -->
@@ -36,7 +36,7 @@
   <!-- End Facebook Pixel -->
 <style>
   /* WhatsApp Float Button */
-  .whatsapp-float {
+  .old-wa-float-disabled {
     position: fixed;
     bottom: 24px;
     right: 24px;
@@ -52,7 +52,7 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     text-decoration: none;
   }
-  .whatsapp-float:hover {
+  .old-wa-float-disabled:hover {
     transform: scale(1.12);
     box-shadow: 0 6px 24px rgba(37,211,102,0.65);
   }
@@ -89,27 +89,73 @@
     }
   }
   </script>
-</head>
+<link rel="stylesheet" href="/style.css"></head>
 <body>
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <div class="logo"><img src="images/logo.webp" alt="Clarvix" class="logo-img"><span class="logo-tag">خدمات Clarvix</span></div>
-      <div class="nav-right">
-        <a href="/ar.html#services" class="nav-link">الخدمات</a>
-        <a href="#pricing" class="nav-link">الأسعار</a>
-        <a href="#how-it-works" class="nav-link">كيف يعمل</a>
-        <a href="/blog/" class="nav-link">المدونة</a>
-        <div class="lang-toggle">
-          <a href="adtech-ai.html" class="lang-btn" onclick="localStorage.setItem('clarvix_lang','en')">EN</a><span class="lang-sep">|</span>
-          <a href="adtech-ai-es.html" class="lang-btn" onclick="localStorage.setItem('clarvix_lang','es')">ES</a><span class="lang-sep">|</span>
-          <a href="adtech-ai-he.html" class="lang-btn" onclick="localStorage.setItem('clarvix_lang','he')">HE</a><span class="lang-sep">|</span>
-          <a href="adtech-ai-ar.html" class="lang-btn active" onclick="localStorage.setItem('clarvix_lang','ar')">AR</a>
-        </div>
-        <button class="btn-primary" onclick="openAdTechOrder()">احجز استشارة </button>
+
+<a href="#main" class="skip-link">تخطّ إلى المحتوى</a>
+
+<div class="brand-watermark" aria-hidden="true">
+  <svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" fill="none"
+       stroke="#19E3D6" stroke-width="24" stroke-linejoin="miter"
+       stroke-miterlimit="10" stroke-linecap="square">
+    <path d="M 100 5 L 195 65 L 115 125 L 195 185 L 100 245 L 5 185 L 5 65 Z"/>
+  </svg>
+</div>
+
+<nav class="nav" id="navbar" aria-label="Primary">
+  <div class="container nav-row">
+    <a href="/ar.html" class="nav-brand" aria-label="Clarvix · home">
+      <svg class="nav-mark" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" fill="none"
+           stroke="#19E3D6" stroke-width="24" stroke-linejoin="miter" stroke-miterlimit="10" aria-hidden="true">
+        <path d="M 100 5 L 195 65 L 115 125 L 195 185 L 100 245 L 5 185 L 5 65 Z"/>
+      </svg>
+      <span class="wordmark">CLARVIX</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/ar.html#services">النهج</a></li>
+      <li><a href="/ar.html#pricing">الباقات</a></li>
+      <li><a href="/ar.html#how">كيف يعمل</a></li>
+      <li><a href="/ar.html#resources">الموارد</a></li>
+      <li><a href="/blog/">المدونة</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <a href="/index.html">EN</a>
+        <a href="/es.html">ES</a>
+        <a href="/he.html">HE</a>
+        <a href="/ar.html" class="active" aria-current="page">AR</a>
       </div>
+      <a href="/ar.html#contact" class="btn btn-primary">اطلب فحصاً عاماً</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span>
+      </button>
     </div>
-  </nav>
-  <section class="hero" id="hero" style="padding-top:92px">
+  </div>
+
+  <div class="container">
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="/ar.html#services">النهج</a>
+      <a href="/ar.html#pricing">الباقات</a>
+      <a href="/ar.html#how">كيف يعمل</a>
+      <a href="/ar.html#resources">الموارد</a>
+      <a href="/blog/">المدونة</a>
+      <div class="mm-lang" role="group" aria-label="Language">
+        <span class="mm-lang-label">اللغة</span>
+        <div class="mm-lang-group">
+          <a href="/index.html">EN</a>
+          <a href="/es.html">ES</a>
+          <a href="/he.html">HE</a>
+          <a href="/ar.html" class="active" aria-current="page">AR</a>
+        </div>
+      </div>
+      <a href="/ar.html#contact" class="btn btn-primary btn-block">اطلب فحصاً عاماً</a>
+    </div>
+  </div>
+</nav>
+
+  <main id="main"><section class="hero" id="hero" style="padding-top:92px">
     <div class="hero-bg-grid"></div>
     <div class="hero-glow"></div>
     <div class="container hero-content">
@@ -178,13 +224,48 @@
       <div class="cta-tagline"><span class="dot red-dot"></span><span class="dot amber-dot"></span><span class="dot green-dot"></span><span class="tagline-text">تحليل. أتمتة. نمو.</span></div>
     </div>
   </section>
-  <footer class="footer"><div class="container footer-inner"><div class="footer-brand"><img src="images/logo.webp" alt="Clarvix" class="footer-logo-img"><p>أنظمة الذكاء الاصطناعي لـ AdTech والإعلانات البرامجية</p></div><div class="footer-links"><a href="/ar.html#services">عودة للخدمات</a><a href="#pricing">الأسعار</a><a href="#how-it-works">كيف يعمل</a><a href="mailto:contact@clarvix.net">contact@clarvix.net</a></div><p class="footer-copy">© 2026 Clarvix. جميع الحقوق محفوظة. </p></div></footer>
+  </main>
+<footer class="footer"><div class="container footer-inner"><div class="footer-brand"><img src="images/logo.webp" alt="Clarvix" class="footer-logo-img"><p>أنظمة الذكاء الاصطناعي لـ AdTech والإعلانات البرامجية</p></div><div class="footer-links"><a href="/ar.html#services">عودة للخدمات</a><a href="#pricing">الأسعار</a><a href="#how-it-works">كيف يعمل</a><a href="mailto:contact@clarvix.net">contact@clarvix.net</a></div><p class="footer-copy">© 2026 Clarvix. جميع الحقوق محفوظة. </p></div></footer>
   <div class="order-overlay" id="adTechOverlay" onclick="if(event.target===this)closeAdTechOrder()"><div class="order-modal" id="adTechModal" role="dialog" aria-modal="true" aria-labelledby="adtech-modal-title"><button class="modal-close" onclick="closeAdTechOrder()">✕</button><div class="modal-header"><img src="images/logo.webp" alt="Clarvix" class="modal-logo-img"><h2 id="adtech-modal-title" class="modal-title">AdTech AI Systems</h2><p class="modal-sub" id="adtech-tier-label">Discovery — $1,500</p></div><div class="package-selector" id="adTechPackageSelector"><label class="pkg-option" id="adTechTierDiscovery" onclick="selectAdTechTier('discovery')"><div class="pkg-radio" id="adTechRadioDiscovery"></div><div class="pkg-info"><span class="pkg-name">Discovery</span><span class="pkg-desc">تحليل Stack وBlueprint الذكاء الاصطناعي</span></div><span class="pkg-price">$1,500</span></label><label class="pkg-option" id="adTechTierBuild" onclick="selectAdTechTier('build')"><div class="pkg-radio" id="adTechRadioBuild"></div><div class="pkg-info"><span class="pkg-name">Build &amp; Test</span><span class="pkg-desc">نشر أول وكيل وقياس النتائج</span></div><span class="pkg-price">$3,600</span></label><label class="pkg-option" id="adTechTierProduction" onclick="selectAdTechTier('production')"><div class="pkg-radio" id="adTechRadioProduction"></div><div class="pkg-info"><span class="pkg-name">Production</span><span class="pkg-desc">منظومة ذكاء اصطناعي مستقلة كاملة <br>مع كل Stack</span></div><span class="pkg-price">$7,500</span></label></div><form class="order-form" id="adTechForm" onsubmit="submitAdTechOrder(event)" novalidate><div class="form-row"><div class="form-group"><label class="form-label">اسم الشركة</label><input type="text" id="adTechCompany" class="form-input" placeholder="مثال: Acme AdTech" required></div><div class="form-group"><label class="form-label">رابط الموقع</label><input type="url" id="adTechUrl" class="form-input" placeholder="https://yourcompany.com" required></div></div><div class="form-group"><label class="form-label">البريد الإلكتروني للتواصل</label><input type="email" id="adTechEmail" class="form-input" placeholder="you@company.com" required></div><div class="form-group"><label class="form-label">منصات AdTech الحالية</label><textarea id="adTechStack" class="form-input" placeholder="مثال: DV360, The Trade Desk, AppNexus" rows="3"></textarea></div><div class="form-group"><label class="form-label">أكبر تحدي في أتمتة AdTech الذكاء الاصطناعي</label><textarea id="adTechChallenge" class="form-input" rows="3" required></textarea></div><p class="form-error" id="adTechFormError">يرجى ملء جميع الحقول المطلوبة، بما في ذلك البريد الإلكتروني</p><button type="submit" class="btn-order-submit" id="adTechSubmit"><span class="submit-text">إرسال الطلب </span><span class="submit-loading" style="display:none;">⏳ جاري الإرسال…</span></button><p class="modal-footnote">سنراجع طلبك ونتواصل معك خلال 24 ساعة </p></form></div></div>
   <script src="app.js"></script>
 
   <\!-- WhatsApp Float Button (ANAT) -->
-  <a href="https://wa.me/972539464262?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%5C%21%20%D8%A3%D9%86%D8%A7%20%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D8%A3%D9%86%D8%B8%D9%85%D8%A9%20AdTech%20AI%20%D9%84%D8%B4%D8%B1%D9%83%D8%AA%D9%8A." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
+
+
+<a class="wa-fab" href="https://wa.me/972539464262?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20Clarvix%2C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D8%AD%D8%AF%D8%AB%20%D8%B9%D9%86%20%D9%81%D8%AD%D8%B5%20%D8%B9%D8%A7%D9%85."
+   target="_blank" rel="noopener" aria-label="دردش مع Clarvix على WhatsApp">
+  <span class="wa-pulse" aria-hidden="true"></span>
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+    <path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-2c1.8 1 3.9 1.5 6.3 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.7c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.6 1.2 1.2-4.5-.2-.4c-1.1-1.7-1.7-3.7-1.7-5.8 0-5.6 4.6-10.2 10.2-10.2S26.2 8.9 26.2 14.5 21.6 24.7 16 24.7zm5.6-7.7c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1.1-1.1 2.6 0 1.5 1.1 3 1.3 3.2.2.2 2.2 3.4 5.3 4.7 3.1 1.3 3.1.9 3.7.8.6-.1 1.8-.7 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.3z"/>
+  </svg>
+  <span class="wa-label">دردش على WhatsApp</span>
+</a>
+
+<script>
+  (function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) { els.forEach(function(el){ el.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  })();
+  (function(){
+    var nav = document.getElementById('navbar');
+    if (!nav) return;
+    var onScroll = function(){ if (window.scrollY > 8) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
+    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  })();
+  (function(){
+    var btn = document.querySelector('.nav-toggle'); var menu = document.getElementById('mobileMenu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      var open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menu.hidden = !open;
+    });
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); menu.hidden = true; btn.setAttribute('aria-expanded','false'); }); });
+  })();
+</script>
+<script src="/accessibility-widget.js" defer></script>
 </body>
 </html>

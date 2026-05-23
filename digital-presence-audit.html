@@ -55,7 +55,7 @@
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://embed.tawk.to">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
   <link rel="stylesheet" href="order-modal.css">
   <script>var CONTACT_EMAIL = 'contact@clarvix.net';</script>
   <!-- FB Pixel -->
@@ -73,9 +73,73 @@
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=3671692796302251&ev=PageView&noscript=1"/></noscript>
   <!-- End Facebook Pixel -->
-</head>
+<link rel="stylesheet" href="/style.css"></head>
 
 <body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="brand-watermark" aria-hidden="true">
+  <svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" fill="none"
+       stroke="#19E3D6" stroke-width="24" stroke-linejoin="miter"
+       stroke-miterlimit="10" stroke-linecap="square">
+    <path d="M 100 5 L 195 65 L 115 125 L 195 185 L 100 245 L 5 185 L 5 65 Z"/>
+  </svg>
+</div>
+
+<nav class="nav" id="navbar" aria-label="Primary">
+  <div class="container nav-row">
+    <a href="/index.html" class="nav-brand" aria-label="Clarvix · home">
+      <svg class="nav-mark" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" fill="none"
+           stroke="#19E3D6" stroke-width="24" stroke-linejoin="miter" stroke-miterlimit="10" aria-hidden="true">
+        <path d="M 100 5 L 195 65 L 115 125 L 195 185 L 100 245 L 5 185 L 5 65 Z"/>
+      </svg>
+      <span class="wordmark">CLARVIX</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/index.html#services">Approach</a></li>
+      <li><a href="/index.html#pricing">Packages</a></li>
+      <li><a href="/index.html#how">How it works</a></li>
+      <li><a href="/index.html#resources">Resources</a></li>
+      <li><a href="/blog/">Blog</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <a href="/index.html" class="active" aria-current="page">EN</a>
+        <a href="/es.html">ES</a>
+        <a href="/he.html">HE</a>
+        <a href="/ar.html">AR</a>
+      </div>
+      <a href="/index.html#contact" class="btn btn-primary">Get a public scan</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="/index.html#services">Approach</a>
+      <a href="/index.html#pricing">Packages</a>
+      <a href="/index.html#how">How it works</a>
+      <a href="/index.html#resources">Resources</a>
+      <a href="/blog/">Blog</a>
+      <div class="mm-lang" role="group" aria-label="Language">
+        <span class="mm-lang-label">LANGUAGE</span>
+        <div class="mm-lang-group">
+          <a href="/index.html" class="active" aria-current="page">EN</a>
+          <a href="/es.html">ES</a>
+          <a href="/he.html">HE</a>
+          <a href="/ar.html">AR</a>
+        </div>
+      </div>
+      <a href="/index.html#contact" class="btn btn-primary btn-block">Get a public scan</a>
+    </div>
+  </div>
+</nav>
+
   <!-- Geo-redirect: Israel visitors → Hebrew page -->
   <script>
   (function(){
@@ -93,30 +157,8 @@
   </script>
 
   <!-- NAV -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <div class="logo">
-        <img src="images/logo.webp" alt="Clarvix" class="logo-img">
-        <span class="logo-tag">Digital Presence Audit</span>
-      </div>
-      <div class="nav-right">
-        <a href="/index.html#services" class="nav-link">Services</a>
-        <a href="#pricing" class="nav-link">Pricing</a>
-        <a href="#how-it-works" class="nav-link">How it works</a>
-        <a href="/blog/" class="nav-link">Blog</a>
-        <div class="lang-toggle">
-          <a href="digital-presence-audit.html" class="lang-btn active" onclick="sessionStorage.setItem('clarvix_lang_override','1')">EN</a><span class="lang-sep">|</span>
-          <a href="digital-presence-audit-es.html" class="lang-btn" onclick="sessionStorage.setItem('clarvix_lang_override','1')">ES</a><span class="lang-sep">|</span>
-          <a href="digital-presence-audit-he.html" class="lang-btn" onclick="sessionStorage.setItem('clarvix_lang_override','1')">HE</a><span class="lang-sep">|</span>
-          <a href="digital-presence-audit-ar.html" class="lang-btn" onclick="sessionStorage.setItem('clarvix_lang_override','1')">AR</a>
-        </div>
-        <button class="btn-primary" onclick="openOrder()">Get Started &#x2192;</button>
-      </div>
-    </div>
-  </nav>
-
   <!-- HERO -->
-  <section class="hero" id="hero" style="padding-top:92px">
+  <main id="main"><section class="hero" id="hero" style="padding-top:92px">
     <div class="hero-bg-grid"></div>
     <div class="hero-glow"></div>
     <div class="container hero-content">
@@ -281,3 +323,52 @@
         <span class="dot amber-dot"></span>
         <span class="dot green-dot"></span>
         <span class="tagline-text">Facts. Clarity. Actio
+<a class="wa-fab" href="https://wa.me/972539464262?text=Hi%20Clarvix%2C%20I%27d%20like%20to%20talk%20about%20a%20public%20scan."
+   target="_blank" rel="noopener" aria-label="Chat with Clarvix on WhatsApp">
+  <span class="wa-pulse" aria-hidden="true"></span>
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+    <path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-2c1.8 1 3.9 1.5 6.3 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.7c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.6 1.2 1.2-4.5-.2-.4c-1.1-1.7-1.7-3.7-1.7-5.8 0-5.6 4.6-10.2 10.2-10.2S26.2 8.9 26.2 14.5 21.6 24.7 16 24.7zm5.6-7.7c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1.1-1.1 2.6 0 1.5 1.1 3 1.3 3.2.2.2 2.2 3.4 5.3 4.7 3.1 1.3 3.1.9 3.7.8.6-.1 1.8-.7 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.3z"/>
+  </svg>
+  <span class="wa-label">Chat on WhatsApp</span>
+</a>
+
+<script>
+  (function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var els = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) { els.forEach(function(el){ el.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  })();
+  (function(){
+    var nav = document.getElementById('navbar');
+    var onScroll = function(){ if (window.scrollY > 8) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
+    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  })();
+  (function(){
+    var btn = document.querySelector('.nav-toggle'); var menu = document.getElementById('mobileMenu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function(){
+      var open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menu.hidden = !open;
+    });
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); menu.hidden = true; btn.setAttribute('aria-expanded','false'); }); });
+  })();
+  document.querySelectorAll('.clarvix-public-scan-form').forEach(function(form){
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      var payload = Object.fromEntries(new FormData(form).entries());
+      if (payload.company) return;
+      try { var res = await fetch(form.action, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
+        if (!res.ok) throw new Error('Request failed');
+        form.hidden = true;
+        var ok = form.parentElement.querySelector('.clarvix-public-scan-success');
+        if (ok) ok.hidden = false;
+      } catch(err) { window.location.href = form.dataset.mailto; }
+    });
+  });
+</script>
+<script src="/accessibility-widget.js" defer></script>
+</body>
+</html>
