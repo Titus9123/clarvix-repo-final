@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <title>AIStackCost — AI Subscription Cost Calculator</title>
+  <meta name="description" content="Calculate the monthly and annual cost of your AI tool subscriptions. Add ChatGPT, Claude, Gemini, coding tools, design tools and team seats to see your real AI stack budget.">
+  <link rel="canonical" href="https://clarvix.net/aistackcost/">
+  <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png">
+  <style>
+    :root { color-scheme: light; --ink:#14213d; --muted:#5b6476; --line:#dbe3ef; --bg:#f7f9fc; --card:#ffffff; --accent:#3867ff; --good:#087f5b; --warn:#b7791f; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; color:var(--ink); background:linear-gradient(180deg,#f7f9fc,#eef4ff); }
+    header, main, footer { max-width: 1120px; margin: 0 auto; padding: 28px 18px; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:-0.04em; font-size:22px; }
+    .logo { width:38px; height:38px; border-radius:12px; background:linear-gradient(135deg,#3867ff,#24c6dc); display:grid; place-items:center; color:#fff; font-weight:900; }
+    .hero { display:grid; grid-template-columns: 1.05fr .95fr; gap:28px; align-items:center; padding: 34px 0; }
+    h1 { font-size: clamp(38px, 6vw, 72px); line-height:.92; margin: 18px 0; letter-spacing:-0.07em; }
+    h2 { font-size: clamp(25px, 3vw, 38px); letter-spacing:-0.04em; margin:0 0 12px; }
+    h3 { margin:0 0 10px; }
+    p { color:var(--muted); line-height:1.65; font-size:17px; }
+    a { color:#2243a6; }
+    .pill { display:inline-flex; align-items:center; padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--muted); font-size:14px; font-weight:700; }
+    .card { background:rgba(255,255,255,.9); border:1px solid var(--line); border-radius:24px; box-shadow:0 20px 60px rgba(28,60,120,.08); padding:22px; }
+    .grid { display:grid; grid-template-columns: repeat(3,1fr); gap:16px; }
+    .calculator { display:grid; gap:14px; }
+    label { font-size:13px; font-weight:800; color:#38445b; display:block; margin-bottom:6px; }
+    input, select { width:100%; border:1px solid var(--line); border-radius:14px; padding:12px 13px; font:inherit; background:#fff; color:var(--ink); }
+    button, .button { border:0; border-radius:14px; padding:13px 16px; font-weight:900; cursor:pointer; background:var(--accent); color:#fff; font-size:15px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; }
+    button.secondary { background:#edf2ff; color:#2243a6; }
+    .row { display:grid; grid-template-columns: 1.3fr .8fr .7fr .8fr auto; gap:10px; align-items:end; }
+    .summary { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:16px; }
+    .metric { border:1px solid var(--line); border-radius:18px; padding:15px; background:#fbfdff; }
+    .metric strong { display:block; font-size:28px; letter-spacing:-0.04em; color:var(--ink); }
+    .metric span { color:var(--muted); font-size:13px; font-weight:700; }
+    .tools { display:grid; gap:8px; margin-top:12px; }
+    .tool { display:flex; justify-content:space-between; gap:12px; border:1px solid var(--line); border-radius:14px; padding:10px 12px; background:#fff; }
+    .tool small { color:var(--muted); }
+    .ad-slot { border:2px dashed #bdd0ff; border-radius:20px; padding:20px; text-align:center; color:#65769a; background:#f8fbff; font-weight:800; }
+    .section { padding:24px 0; }
+    .notice { border-left:4px solid var(--warn); background:#fffaf0; padding:14px 16px; border-radius:12px; color:#6b4a13; }
+    .tag { font-size:12px; font-weight:900; border-radius:999px; padding:5px 8px; background:#eef4ff; color:#3150b7; }
+    footer { color:var(--muted); font-size:14px; }
+    .tiny { font-size:13px; }
+    @media (max-width: 860px) { .hero, .grid, .summary { grid-template-columns:1fr; } .row { grid-template-columns:1fr 1fr; } .row button { grid-column:1/-1; } }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"AIStackCost","applicationCategory":"FinanceApplication","operatingSystem":"Web","description":"A calculator for estimating monthly and annual AI subscription costs.","url":"https://clarvix.net/aistackcost/","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+</head>
+<body data-asset-id="aistackcost_subscription_calculator" data-publication-status="organic_mvp_live">
+  <header>
+    <a href="#main" class="tiny">Skip to calculator</a>
+    <div class="brand"><div class="logo">AI</div><span>AIStackCost</span></div>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div>
+        <span class="pill">Free AI subscription cost calculator</span>
+        <h1>Calculate your real AI subscription stack cost.</h1>
+        <p>Add ChatGPT, Claude, Gemini, coding tools, design tools, automations and team seats. See monthly cost, annual cost and possible savings before another subscription renews.</p>
+        <p class="notice">No credentials, no private account access, no live ad tags, no affiliate links. Tool names are examples only, not partnerships or endorsements.</p>
+      </div>
+      <div class="card">
+        <h2>Quick result</h2>
+        <div class="summary">
+          <div class="metric"><strong id="monthlyTotal">$0</strong><span>monthly total</span></div>
+          <div class="metric"><strong id="annualTotal">$0</strong><span>annual total</span></div>
+          <div class="metric"><strong id="savingsTotal">$0</strong><span>possible monthly savings</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section card" aria-labelledby="calc-title">
+      <h2 id="calc-title">AI subscription calculator</h2>
+      <p>Start with presets or add your own tools. Data stays in this page; it is not submitted anywhere.</p>
+      <div class="calculator">
+        <div class="row">
+          <div><label for="toolName">Tool</label><input id="toolName" value="ChatGPT Plus"></div>
+          <div><label for="toolCost">Monthly cost</label><input id="toolCost" type="number" min="0" step="0.01" value="20"></div>
+          <div><label for="toolSeats">Seats</label><input id="toolSeats" type="number" min="1" step="1" value="1"></div>
+          <div><label for="toolStatus">Decision</label><select id="toolStatus"><option value="keep">Keep</option><option value="maybe">Maybe cancel</option><option value="cancel">Cancel</option></select></div>
+          <button id="addTool" type="button">Add tool</button>
+        </div>
+        <div>
+          <button class="secondary" type="button" data-preset="creator">Load creator preset</button>
+          <button class="secondary" type="button" data-preset="student">Load student preset</button>
+          <button class="secondary" type="button" data-preset="team">Load small team preset</button>
+        </div>
+        <div class="tools" id="toolList"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="ad-slot" aria-label="inert ad placeholder">Future display ad slot placeholder — inactive until ad-network approval</div>
+    </section>
+
+    <section class="section grid">
+      <article class="card"><h3>What to cancel first</h3><p>Look for duplicate tools, tools used less than once per week, annual plans that no longer match your workflow, and seats assigned to inactive users.</p></article>
+      <article class="card"><h3>Monthly vs annual</h3><p>Annual discounts can be useful, but they hide lock-in. Compare annual savings against your confidence that you will still use the tool in six months.</p></article>
+      <article class="card"><h3>Team stack hygiene</h3><p>Teams should review owners, seats, billing emails, renewal dates and overlapping features before adding another AI subscription.</p></article>
+    </section>
+
+    <section class="section card">
+      <h2>FAQ</h2>
+      <h3>How much should I spend on AI tools?</h3>
+      <p>There is no universal number. A useful rule is to compare monthly cost with hours saved, output quality, and whether the tool replaces another subscription.</p>
+      <h3>Does this page recommend specific tools?</h3>
+      <p>No. Tool names are examples only. There are no official partnerships, no affiliate links and no endorsements in this MVP.</p>
+      <h3>Can this be used for a team?</h3>
+      <p>Yes. Use seats to estimate total monthly cost. For real procurement, also review security, privacy and internal approval requirements.</p>
+    </section>
+
+    <section class="section card">
+      <h2>Ad revenue validation rule</h2>
+      <p>This asset exists to test legal traffic and ad monetization economics. It should only scale if measured revenue per visit can beat cost per visit.</p>
+      <p><strong>Rule:</strong> revenue_per_visit &gt; cost_per_visit with margin. Otherwise kill, pause or rotate to another topic.</p>
+      <a class="button" href="/asset-lab/" data-event="cta_click">How Asset Lab chooses experiments</a>
+    </section>
+  </main>
+  <footer>
+    Independent Asset Lab MVP. Built to test ad-revenue economics, not to sell Clarvix. No credentials, no private data, no live ads. © 2026
+  </footer>
+  <script>
+    const tools = [];
+    const fmt = new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', maximumFractionDigits:0});
+    function track(eventName, props = {}) { window.dataLayer = window.dataLayer || []; window.dataLayer.push({event:eventName, asset_id:'aistackcost_subscription_calculator', ...props}); }
+    function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c])); }
+    function render() {
+      const monthly = tools.reduce((sum, t) => sum + (t.status === 'cancel' ? 0 : t.cost * t.seats), 0);
+      const savings = tools.reduce((sum, t) => sum + (t.status === 'cancel' || t.status === 'maybe' ? t.cost * t.seats : 0), 0);
+      document.getElementById('monthlyTotal').textContent = fmt.format(monthly);
+      document.getElementById('annualTotal').textContent = fmt.format(monthly * 12);
+      document.getElementById('savingsTotal').textContent = fmt.format(savings);
+      const list = document.getElementById('toolList');
+      list.innerHTML = tools.map((t, i) => `<div class="tool"><div><strong>${escapeHtml(t.name)}</strong><br><small>${fmt.format(t.cost)} × ${t.seats} seat(s) · <span class="tag">${t.status}</span></small></div><button class="secondary" type="button" onclick="removeTool(${i})">Remove</button></div>`).join('');
+      if (tools.length) track('calculator_complete', {tool_count: tools.length, monthly_total: monthly});
+    }
+    function addTool(name, cost, seats, status) { tools.push({name, cost:Number(cost)||0, seats:Number(seats)||1, status}); track('tool_add', {name, status}); render(); }
+    function removeTool(i) { tools.splice(i, 1); render(); }
+    document.getElementById('addTool').addEventListener('click', () => {
+      track('calculator_start');
+      addTool(document.getElementById('toolName').value || 'AI tool', document.getElementById('toolCost').value, document.getElementById('toolSeats').value, document.getElementById('toolStatus').value);
+    });
+    const presets = {
+      creator: [['ChatGPT Plus',20,1,'keep'], ['Claude Pro',20,1,'maybe'], ['Canva Pro',15,1,'keep']],
+      student: [['ChatGPT Plus',20,1,'maybe'], ['Notebook/study AI',10,1,'keep']],
+      team: [['ChatGPT Team',30,5,'keep'], ['Coding AI',20,3,'keep'], ['Meeting notes AI',15,5,'maybe']]
+    };
+    document.querySelectorAll('[data-preset]').forEach(btn => btn.addEventListener('click', () => { tools.splice(0); presets[btn.dataset.preset].forEach(row => addTool(...row)); }));
+    document.addEventListener('click', function(e){ const el=e.target.closest('[data-event]'); if(el) track(el.getAttribute('data-event')); });
+    track('asset_view');
+  </script>
+  <script src="/accessibility-widget.js?v=8ec7e2e" defer></script>
+</body>
+</html>
