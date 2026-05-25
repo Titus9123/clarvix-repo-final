@@ -25,6 +25,14 @@
   <url><loc>https://clarvix.net/movebudget/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://clarvix.net/movebudget/apartment-moving-cost-calculator/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://clarvix.net/movebudget/first-month-apartment-budget/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/budgetreset/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://clarvix.net/budgetreset/monthly-budget-planner/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/budgetreset/paycheck-budget-template/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/budgetreset/debt-payoff-tracker/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/mealplansheet/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://clarvix.net/mealplansheet/weekly-meal-planner-printable/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/mealplansheet/grocery-list-template/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/mealplansheet/meal-prep-checklist/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url>
     <loc>https://clarvix.net/lead-tracking-audit-israel/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://clarvix.net/lead-tracking-audit-israel/" />
