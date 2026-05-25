@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <title>AIStackCost — AI Subscription Cost Calculator</title>
-  <meta name="description" content="Calculate the monthly and annual cost of your AI tool subscriptions. Add ChatGPT, Claude, Gemini, coding tools, design tools and team seats to see your real AI stack budget.">
+  <meta name="description" content="Free AI subscription cost calculator. Add tools, seats and monthly prices to see your real AI stack budget and possible savings.">
   <link rel="canonical" href="https://clarvix.net/aistackcost/">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KQ8MQBNQ');</script>
   <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon-64.png">
   <style>
     :root { color-scheme: light; --ink:#14213d; --muted:#5b6476; --line:#dbe3ef; --bg:#f7f9fc; --card:#ffffff; --accent:#3867ff; --good:#087f5b; --warn:#b7791f; }
@@ -41,15 +43,18 @@
     .section { padding:24px 0; }
     .notice { border-left:4px solid var(--warn); background:#fffaf0; padding:14px 16px; border-radius:12px; color:#6b4a13; }
     .tag { font-size:12px; font-weight:900; border-radius:999px; padding:5px 8px; background:#eef4ff; color:#3150b7; }
+    .soft-conversion { display:grid; gap:12px; grid-template-columns: 1fr 1fr 1fr; }
+    .copy-box { border:1px solid var(--line); border-radius:16px; padding:14px; background:#fbfdff; color:var(--muted); }
     footer { color:var(--muted); font-size:14px; }
     .tiny { font-size:13px; }
-    @media (max-width: 860px) { .hero, .grid, .summary { grid-template-columns:1fr; } .row { grid-template-columns:1fr 1fr; } .row button { grid-column:1/-1; } }
+    @media (max-width: 860px) { .hero, .grid, .summary, .soft-conversion { grid-template-columns:1fr; } .row { grid-template-columns:1fr 1fr; } .row button { grid-column:1/-1; } }
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebApplication","name":"AIStackCost","applicationCategory":"FinanceApplication","operatingSystem":"Web","description":"A calculator for estimating monthly and annual AI subscription costs.","url":"https://clarvix.net/aistackcost/","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
 </head>
 <body data-asset-id="aistackcost_subscription_calculator" data-publication-status="organic_mvp_live">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQ8MQBNQ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <header>
     <a href="#main" class="tiny">Skip to calculator</a>
     <div class="brand"><div class="logo">AI</div><span>AIStackCost</span></div>
@@ -103,6 +108,17 @@
     </section>
 
     <section class="section card">
+      <h2>Save or share your result</h2>
+      <p>This is the soft conversion layer for measurement: no email form, no credentials, no account access. Copy your result, open a support guide, or review the Asset Lab method.</p>
+      <div class="copy-box" id="resultText">Your AI stack result will appear here after you add tools.</div>
+      <div class="soft-conversion">
+        <button type="button" id="copyResult">Copy result</button>
+        <a class="button" href="/aistackcost/ai-subscription-cost-calculator/" data-event="support_page_click">Calculator guide</a>
+        <a class="button" href="/aistackcost/how-much-do-ai-tools-cost-per-month/" data-event="support_page_click">Monthly cost guide</a>
+      </div>
+    </section>
+
+    <section class="section card">
       <h2>FAQ</h2>
       <h3>How much should I spend on AI tools?</h3>
       <p>There is no universal number. A useful rule is to compare monthly cost with hours saved, output quality, and whether the tool replaces another subscription.</p>
@@ -133,6 +149,8 @@
       document.getElementById('monthlyTotal').textContent = fmt.format(monthly);
       document.getElementById('annualTotal').textContent = fmt.format(monthly * 12);
       document.getElementById('savingsTotal').textContent = fmt.format(savings);
+      const resultText = document.getElementById('resultText');
+      if (resultText) resultText.textContent = tools.length ? `AIStackCost result: ${fmt.format(monthly)} per month, ${fmt.format(monthly * 12)} per year, with up to ${fmt.format(savings)} in possible monthly savings to review.` : 'Your AI stack result will appear here after you add tools.';
       const list = document.getElementById('toolList');
       list.innerHTML = tools.map((t, i) => `<div class="tool"><div><strong>${escapeHtml(t.name)}</strong><br><small>${fmt.format(t.cost)} × ${t.seats} seat(s) · <span class="tag">${t.status}</span></small></div><button class="secondary" type="button" onclick="removeTool(${i})">Remove</button></div>`).join('');
       if (tools.length) track('calculator_complete', {tool_count: tools.length, monthly_total: monthly});
@@ -149,6 +167,12 @@
       team: [['ChatGPT Team',30,5,'keep'], ['Coding AI',20,3,'keep'], ['Meeting notes AI',15,5,'maybe']]
     };
     document.querySelectorAll('[data-preset]').forEach(btn => btn.addEventListener('click', () => { tools.splice(0); presets[btn.dataset.preset].forEach(row => addTool(...row)); }));
+    const copyBtn = document.getElementById('copyResult');
+    if (copyBtn) copyBtn.addEventListener('click', async () => {
+      const text = document.getElementById('resultText').textContent;
+      try { await navigator.clipboard.writeText(text); copyBtn.textContent = 'Copied'; track('result_copy'); }
+      catch (e) { copyBtn.textContent = 'Select result above'; track('result_copy_fallback'); }
+    });
     document.addEventListener('click', function(e){ const el=e.target.closest('[data-event]'); if(el) track(el.getAttribute('data-event')); });
     track('asset_view');
   </script>

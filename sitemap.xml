@@ -18,6 +18,10 @@
   <url><loc>https://clarvix.net/ga4-gtm-audit-israel/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://clarvix.net/google-ads-waste-audit-israel/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://clarvix.net/adtech-control-tower/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://clarvix.net/asset-lab/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/aistackcost/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://clarvix.net/aistackcost/ai-subscription-cost-calculator/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/aistackcost/how-much-do-ai-tools-cost-per-month/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url>
     <loc>https://clarvix.net/lead-tracking-audit-israel/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://clarvix.net/lead-tracking-audit-israel/" />
