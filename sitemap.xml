@@ -249,4 +249,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://clarvix.net/revenue-leak-monitoring-israel/" />
     <changefreq>weekly</changefreq><priority>0.8</priority>
   </url>
+  <url><loc>https://clarvix.net/budgetreset/bill-payment-calendar/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/budgetreset/savings-challenge-tracker/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/budgetreset/biweekly-budget-planner/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/aistackcost/chatgpt-vs-claude-cost/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/aistackcost/ai-tools-budget-for-small-business/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/aistackcost/free-vs-paid-ai-tools/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/movebudget/moving-checklist-printable/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/movebudget/utility-setup-checklist/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/movebudget/security-deposit-calculator/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/mealplansheet/family-meal-planner/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/mealplansheet/budget-grocery-list/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://clarvix.net/mealplansheet/meal-planner-for-two/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
