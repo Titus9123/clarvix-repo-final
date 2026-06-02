@@ -261,4 +261,11 @@
   <url><loc>https://clarvix.net/mealplansheet/family-meal-planner/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://clarvix.net/mealplansheet/budget-grocery-list/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://clarvix.net/mealplansheet/meal-planner-for-two/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <url>
+    <loc>https://clarvix.net/habitgrid/</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
 </urlset>
