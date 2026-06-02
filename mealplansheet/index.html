@@ -90,5 +90,5 @@ function downloadCsv(){let rows=[['Day','Breakfast','Lunch','Dinner']].concat(pl
 document.addEventListener('DOMContentLoaded',()=>{applyLang();generate();track('asset_view');document.getElementById('generateBtn').addEventListener('click',generate);document.getElementById('addMeal').addEventListener('click',addMeal);document.getElementById('copyResult').addEventListener('click',copyResult);document.getElementById('downloadCsv').addEventListener('click',downloadCsv);document.getElementById('printResult').addEventListener('click',()=>{track('print_click');window.print()});document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>{lang=b.dataset.lang;applyLang();track('language_change',{language:lang})}));document.addEventListener('click',e=>{let g=e.target.closest('[data-goal]');if(g){selected=g.dataset.goal;renderGoals();generate()}let el=e.target.closest('[data-event]');if(el)track(el.dataset.event,{href:el.href||''})});});
 </script>
 <script src="/accessibility-widget.js?v=8ec7e2e" defer></script>
-</body>
+<script src="/asset-lab-measurement.js" defer></script></body>
 </html>

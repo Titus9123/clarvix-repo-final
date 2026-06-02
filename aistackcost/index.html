@@ -103,5 +103,5 @@ function downloadCsv(){let rows=[['Tool','Vendor','Role','Use for','Monthly USD'
 document.addEventListener('DOMContentLoaded',()=>{applyLang();recommend();track('asset_view');document.getElementById('recommendBtn').addEventListener('click',recommend);document.getElementById('addTool').addEventListener('click',()=>add());document.getElementById('copyResult').addEventListener('click',copyResult);document.getElementById('downloadCsv').addEventListener('click',downloadCsv);document.getElementById('printResult').addEventListener('click',()=>{track('print_click');window.print()});document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>{lang=b.dataset.lang;applyLang();track('language_change',{language:lang})}));document.addEventListener('click',e=>{let u=e.target.closest('[data-use]');if(u){selected=u.dataset.use;renderUseCases();recommend()}let el=e.target.closest('[data-event]');if(el)track(el.dataset.event,{href:el.href||''})});});
 </script>
 <script src="/accessibility-widget.js?v=8ec7e2e" defer></script>
-</body>
+<script src="/asset-lab-measurement.js" defer></script></body>
 </html>
