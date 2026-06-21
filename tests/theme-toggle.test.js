@@ -12,7 +12,7 @@ const js = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
   assert(page.includes('id="themeToggle"'), `${file} must include the theme toggle.`);
   assert(page.includes('class="theme-icon theme-icon-sun"'), `${file} must include the sun icon.`);
   assert(page.includes('class="theme-icon theme-icon-moon"'), `${file} must include the moon icon.`);
-  assert(page.includes('class="theme-label"'), `${file} must include a visible theme label for mobile clarity.`);
+  assert(page.includes('class="sr-only theme-label"'), `${file} must keep the label accessible but visually hidden.`);
   assert(page.includes("localStorage.getItem('clarvix-theme')"), `${file} must initialize the persisted theme.`);
   assert(page.includes("localStorage.setItem('clarvix-theme'"), `${file} must persist the selected theme.`);
 });
@@ -40,6 +40,14 @@ assert(
 assert(
   css.includes('html[data-theme="light"] .theme-icon-sun') && css.includes('html[data-theme="light"] .theme-icon-moon'),
   'CSS must swap sun/moon icons between dark and light modes.'
+);
+assert(
+  css.includes('background: transparent') && css.includes('border: 0') && css.includes('html[data-theme="light"] .theme-toggle { color: #8b5e34; }'),
+  'Theme toggle must be a pure outline icon with no visible button box and wood color in light mode.'
+);
+assert(
+  !css.includes('min-width: 112px') && !css.includes('top: 86px') && !css.includes('display: inline;\n    font-size: 0.72rem'),
+  'Mobile theme toggle must not become a floating pill or visible text label.'
 );
 assert(
   js.includes('initThemeToggle') && js.includes('localStorage.setItem(\'clarvix-theme\''),
