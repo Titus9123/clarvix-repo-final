@@ -34,16 +34,16 @@ assert(
   'CSS must define a light-mode variable palette with the approved beige background.'
 );
 assert(
-  css.includes('--teal:          #8b5e34') && css.includes('--watermark-stroke: #9b6f45'),
-  'Light mode must use wood accent and wooden watermark color.'
+  css.includes('--teal:          #5a351d') && css.includes('--watermark-stroke: #9b6f45'),
+  'Light mode must use accessible wood accent and wooden watermark color.'
 );
 assert(
   css.includes('html[data-theme="light"] .theme-icon-sun') && css.includes('html[data-theme="light"] .theme-icon-moon'),
   'CSS must swap sun/moon icons between dark and light modes.'
 );
 assert(
-  css.includes('background: transparent') && css.includes('border: 0') && css.includes('html[data-theme="light"] .theme-toggle { color: #8b5e34; }'),
-  'Theme toggle must be a pure outline icon with no visible button box and wood color in light mode.'
+  css.includes('background: transparent') && css.includes('border: 0') && css.includes('html[data-theme="light"] .theme-toggle { color: var(--teal-deep); }'),
+  'Theme toggle must be a pure outline icon with no visible button box and accessible wood color in light mode.'
 );
 assert(
   !css.includes('min-width: 112px') && !css.includes('top: 86px') && !css.includes('display: inline;\n    font-size: 0.72rem'),
