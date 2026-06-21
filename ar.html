@@ -72,6 +72,16 @@
         <a href="he.html" >HE</a>
         <a href="ar.html" class="active" aria-current="page">AR</a>
       </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+        </svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 12.79A8.5 8.5 0 1 1 11.21 3 6.7 6.7 0 0 0 21 12.79Z"></path>
+        </svg>
+        <span class="theme-label">Theme</span>
+      </button>
       <a href="#contact" class="btn btn-primary">اطلب فحصاً عاماً</a>
       <button class="nav-toggle" aria-label="افتح القائمة" aria-expanded="false" aria-controls="mobileMenu">
         <span></span>
@@ -434,6 +444,29 @@
       menu.hidden = !open;
     });
     menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); menu.hidden = true; btn.setAttribute('aria-expanded','false'); }); });
+  })();
+  (function(){
+    var themeToggle = document.getElementById('themeToggle');
+    var themeMeta = document.querySelector('meta[name="theme-color"]');
+    var savedTheme = null;
+    try { savedTheme = localStorage.getItem('clarvix-theme'); } catch (err) { savedTheme = null; }
+    var initialTheme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
+    applyTheme(initialTheme);
+    if (!themeToggle) return;
+    themeToggle.addEventListener('click', function(){
+      var current = document.documentElement.getAttribute('data-theme') || 'dark';
+      var next = current === 'light' ? 'dark' : 'light';
+      applyTheme(next);
+      try { localStorage.setItem('clarvix-theme', next); } catch (err) {}
+    });
+    function applyTheme(next) {
+      document.documentElement.setAttribute('data-theme', next);
+      if (themeMeta) themeMeta.setAttribute('content', next === 'light' ? '#fbf5e8' : '#04081a');
+      if (themeToggle) {
+        themeToggle.setAttribute('aria-label', next === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+        themeToggle.setAttribute('aria-pressed', next === 'light' ? 'true' : 'false');
+      }
+    }
   })();
   document.querySelectorAll('.clarvix-public-scan-form').forEach(function(form){
     form.addEventListener('submit', async function(e){

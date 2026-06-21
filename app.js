@@ -14,6 +14,7 @@
 let currentLang = document.documentElement.lang || 'en';
 
 document.addEventListener('DOMContentLoaded', function () {
+  initThemeToggle();
   initScrollAnimations();
   initScoreBars();
 });
@@ -423,16 +424,49 @@ function switchTab(tabId, btn) {
 }
 
 /* ══════════════════════════════════════════════════════════════
-   5. NAV SCROLL EFFECT
+   5. THEME TOGGLE — dark / light mode
    ══════════════════════════════════════════════════════════════ */
 
-var nav = document.getElementById('nav');
+function initThemeToggle() {
+  var themeToggle = document.getElementById('themeToggle');
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+  var savedTheme = null;
+
+  try { savedTheme = localStorage.getItem('clarvix-theme'); } catch (err) { savedTheme = null; }
+
+  var initialTheme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
+  applyTheme(initialTheme);
+
+  if (!themeToggle) return;
+
+  themeToggle.addEventListener('click', function () {
+    var current = document.documentElement.getAttribute('data-theme') || 'dark';
+    var next = current === 'light' ? 'dark' : 'light';
+    applyTheme(next);
+    try { localStorage.setItem('clarvix-theme', next); } catch (err) {}
+  });
+
+  function applyTheme(next) {
+    document.documentElement.setAttribute('data-theme', next);
+    if (themeMeta) themeMeta.setAttribute('content', next === 'light' ? '#fbf5e8' : '#04081a');
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-label', next === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+      themeToggle.setAttribute('aria-pressed', next === 'light' ? 'true' : 'false');
+    }
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   6. NAV SCROLL EFFECT
+   ══════════════════════════════════════════════════════════════ */
+
+var nav = document.getElementById('navbar');
 window.addEventListener('scroll', function () {
   if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
 
 /* ══════════════════════════════════════════════════════════════
-   6. SMOOTH SCROLL FOR ANCHOR LINKS
+   7. SMOOTH SCROLL FOR ANCHOR LINKS
    ══════════════════════════════════════════════════════════════ */
 
 document.querySelectorAll('a[href^="#"]').forEach(function (link) {
@@ -448,7 +482,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function (link) {
 });
 
 /* ══════════════════════════════════════════════════════════════
-   7. SCROLL-TRIGGERED REVEAL ANIMATIONS
+   8. SCROLL-TRIGGERED REVEAL ANIMATIONS
    ══════════════════════════════════════════════════════════════ */
 
 function initScrollAnimations() {
@@ -480,7 +514,7 @@ function initScrollAnimations() {
 }
 
 /* ══════════════════════════════════════════════════════════════
-   8. ANIMATED SCORE BARS
+   9. ANIMATED SCORE BARS
    ══════════════════════════════════════════════════════════════ */
 
 function initScoreBars() {
