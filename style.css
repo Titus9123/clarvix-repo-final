@@ -1284,3 +1284,227 @@ html[data-theme="light"] #clv-a11y-btn {
 html[data-theme="light"] #clv-a11y-btn svg {
   stroke: #fffaf0 !important;
 }
+
+/* ============================================================
+   LIGHT MODE ACCESSIBILITY HARDENING — final priority layer
+   Keeps Clarvix light mode warm, but makes every widget state legible.
+   ============================================================ */
+html[data-theme="light"] .hero-title,
+html[data-theme="light"] .hero h1,
+html[data-theme="light"] .section h2,
+html[data-theme="light"] .section h3 {
+  color: #17120d !important;
+  -webkit-text-fill-color: #17120d !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.45) !important;
+}
+html[data-theme="light"] .grad-teal,
+html[data-theme="light"] .hero-title .grad-teal {
+  background: none !important;
+  color: #3b2415 !important;
+  -webkit-text-fill-color: #3b2415 !important;
+}
+html[data-theme="light"] .hero-sub,
+html[data-theme="light"] .safe-line,
+html[data-theme="light"] .safe-line span,
+html[data-theme="light"] .section-header p,
+html[data-theme="light"] .step p,
+html[data-theme="light"] .package p,
+html[data-theme="light"] .faq p {
+  color: #4f4337 !important;
+}
+html[data-theme="light"] .hero::before {
+  opacity: 0.06 !important;
+}
+html[data-theme="light"] .eyebrow,
+html[data-theme="light"] .panel-head .tag,
+html[data-theme="light"] .sev-l {
+  color: #3b2415 !important;
+  background: #f1e1ca !important;
+  border-color: #b68a5b !important;
+}
+html[data-theme="light"] .eyebrow.eyebrow-gold,
+html[data-theme="light"] .sev-m {
+  color: #4b3100 !important;
+  background: #efd7a8 !important;
+  border-color: #9c6b0b !important;
+}
+html[data-theme="light"] .eyebrow.eyebrow-red,
+html[data-theme="light"] .sev-h {
+  color: #5c1d14 !important;
+  background: #f1c6be !important;
+  border-color: #a9483d !important;
+}
+html[data-theme="light"] .btn-ghost {
+  background: #f2eee6 !important;
+}
+
+/* Accessibility widget states must override any light-theme design token. */
+body.clv-high-contrast,
+body.clv-high-contrast *:not(svg):not(path) {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  background-image: none !important;
+  color: #ffff00 !important;
+  -webkit-text-fill-color: #ffff00 !important;
+  border-color: #ffff00 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+body.clv-high-contrast a,
+body.clv-high-contrast a *:not(svg):not(path),
+body.clv-high-contrast button,
+body.clv-high-contrast button *:not(svg):not(path) {
+  color: #00ffff !important;
+  -webkit-text-fill-color: #00ffff !important;
+  border-color: #00ffff !important;
+}
+body.clv-high-contrast #clv-a11y-panel,
+body.clv-high-contrast #clv-a11y-btn,
+body.clv-high-contrast .wa-fab {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  color: #00ffff !important;
+  -webkit-text-fill-color: #00ffff !important;
+  border: 2px solid #00ffff !important;
+}
+body.clv-high-contrast svg,
+body.clv-high-contrast svg * {
+  stroke: #00ffff !important;
+  fill: none !important;
+}
+body.clv-high-contrast .clarvix-watermark,
+body.clv-high-contrast .hero::before,
+body.clv-high-contrast .site-bg::before,
+body.clv-high-contrast .site-bg::after {
+  opacity: 0 !important;
+  display: none !important;
+}
+body.clv-highlight-links a,
+body.clv-highlight-links a:visited,
+body.clv-highlight-links a *:not(svg):not(path) {
+  color: #003c8f !important;
+  -webkit-text-fill-color: #003c8f !important;
+  background: #fff176 !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 3px !important;
+  text-underline-offset: 4px !important;
+}
+body.clv-highlight-links html[data-theme="light"] .btn-primary,
+body.clv-highlight-links .btn-primary {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: #4b2c17 !important;
+}
+body.clv-negative #clv-a11y-panel,
+body.clv-negative #clv-a11y-btn,
+body.clv-grayscale #clv-a11y-panel,
+body.clv-grayscale #clv-a11y-btn {
+  background: #050505 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+body.clv-negative #clv-a11y-panel *,
+body.clv-negative #clv-a11y-btn *,
+body.clv-grayscale #clv-a11y-panel *,
+body.clv-grayscale #clv-a11y-btn * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+body.clv-readable-font,
+body.clv-readable-font * {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+/* Accessibility widget states in light mode: highest-priority overrides. */
+html[data-theme="light"] body.clv-high-contrast,
+html[data-theme="light"] body.clv-high-contrast *:not(svg):not(path) {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  background-image: none !important;
+  color: #ffff00 !important;
+  -webkit-text-fill-color: #ffff00 !important;
+  border-color: #ffff00 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+html[data-theme="light"] body.clv-high-contrast a,
+html[data-theme="light"] body.clv-high-contrast a *:not(svg):not(path),
+html[data-theme="light"] body.clv-high-contrast button,
+html[data-theme="light"] body.clv-high-contrast button *:not(svg):not(path),
+html[data-theme="light"] body.clv-high-contrast #themeToggle,
+html[data-theme="light"] body.clv-high-contrast #themeToggle *:not(svg):not(path) {
+  color: #00ffff !important;
+  -webkit-text-fill-color: #00ffff !important;
+  border-color: #00ffff !important;
+}
+html[data-theme="light"] body.clv-high-contrast .nav-brand,
+html[data-theme="light"] body.clv-high-contrast .nav-brand .wordmark,
+html[data-theme="light"] body.clv-high-contrast #themeToggle,
+html[data-theme="light"] body.clv-high-contrast #themeToggle .theme-label,
+html[data-theme="light"] body.clv-high-contrast .grad-teal,
+html[data-theme="light"] body.clv-high-contrast .hero-title,
+html[data-theme="light"] body.clv-high-contrast h1,
+html[data-theme="light"] body.clv-high-contrast h2,
+html[data-theme="light"] body.clv-high-contrast h3,
+html[data-theme="light"] body.clv-high-contrast p,
+html[data-theme="light"] body.clv-high-contrast .hero-sub,
+html[data-theme="light"] body.clv-high-contrast .safe-line,
+html[data-theme="light"] body.clv-high-contrast .eyebrow,
+html[data-theme="light"] body.clv-high-contrast .sev,
+html[data-theme="light"] body.clv-high-contrast .tag,
+html[data-theme="light"] body.clv-high-contrast .btn,
+html[data-theme="light"] body.clv-high-contrast .btn-ghost,
+html[data-theme="light"] body.clv-high-contrast .btn-primary {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  background-image: none !important;
+  color: #ffff00 !important;
+  -webkit-text-fill-color: #ffff00 !important;
+  border-color: #ffff00 !important;
+  text-shadow: none !important;
+}
+html[data-theme="light"] body.clv-high-contrast svg,
+html[data-theme="light"] body.clv-high-contrast svg * {
+  stroke: #00ffff !important;
+  fill: none !important;
+}
+html[data-theme="light"] body.clv-links a,
+html[data-theme="light"] body.clv-links a:visited,
+html[data-theme="light"] body.clv-links a *:not(svg):not(path) {
+  color: #003c8f !important;
+  -webkit-text-fill-color: #003c8f !important;
+  background: #fff176 !important;
+  background-color: #fff176 !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 3px !important;
+  text-underline-offset: 4px !important;
+}
+html[data-theme="light"] body.clv-links .btn-primary,
+html[data-theme="light"] body.clv-links .btn-primary *:not(svg):not(path) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: #4b2c17 !important;
+  background-color: #4b2c17 !important;
+}
+html[data-theme="light"] body.clv-negative #clv-a11y-panel,
+html[data-theme="light"] body.clv-negative #clv-a11y-btn,
+html[data-theme="light"] body.clv-grayscale #clv-a11y-panel,
+html[data-theme="light"] body.clv-grayscale #clv-a11y-btn {
+  background: #050505 !important;
+  background-color: #050505 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+html[data-theme="light"] body.clv-negative #clv-a11y-panel *,
+html[data-theme="light"] body.clv-negative #clv-a11y-btn *,
+html[data-theme="light"] body.clv-grayscale #clv-a11y-panel *,
+html[data-theme="light"] body.clv-grayscale #clv-a11y-btn * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+html[data-theme="light"] body.clv-read-font,
+html[data-theme="light"] body.clv-read-font * {
+  font-family: Arial, Helvetica, sans-serif !important;
+}

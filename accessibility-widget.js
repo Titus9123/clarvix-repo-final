@@ -262,16 +262,55 @@
 /* ── Applied classes ── */
 body.clv-high-contrast {
   filter: none !important;
-}
-body.clv-high-contrast * {
-  background-color: #000 !important;
+  background: #000 !important;
   color: #ffff00 !important;
+}
+body.clv-high-contrast *:not(svg):not(path) {
+  background: #000 !important;
+  background-color: #000 !important;
+  background-image: none !important;
+  color: #ffff00 !important;
+  -webkit-text-fill-color: #ffff00 !important;
   border-color: #ffff00 !important;
   text-shadow: none !important;
   box-shadow: none !important;
 }
-body.clv-high-contrast a, body.clv-high-contrast a * {
+body.clv-high-contrast a,
+body.clv-high-contrast a *:not(svg):not(path),
+body.clv-high-contrast button,
+body.clv-high-contrast button *:not(svg):not(path),
+body.clv-high-contrast #themeToggle,
+body.clv-high-contrast #themeToggle *:not(svg):not(path) {
   color: #00ffff !important;
+  -webkit-text-fill-color: #00ffff !important;
+  border-color: #00ffff !important;
+}
+body.clv-high-contrast .nav-brand,
+body.clv-high-contrast .nav-brand .wordmark,
+body.clv-high-contrast #themeToggle,
+body.clv-high-contrast #themeToggle .theme-label,
+body.clv-high-contrast .grad-teal,
+body.clv-high-contrast .hero-title,
+body.clv-high-contrast h1,
+body.clv-high-contrast h2,
+body.clv-high-contrast h3,
+body.clv-high-contrast p,
+body.clv-high-contrast .hero-sub,
+body.clv-high-contrast .safe-line,
+body.clv-high-contrast .eyebrow,
+body.clv-high-contrast .sev,
+body.clv-high-contrast .tag {
+  background: #000 !important;
+  background-color: #000 !important;
+  background-image: none !important;
+  color: #ffff00 !important;
+  -webkit-text-fill-color: #ffff00 !important;
+  border-color: #ffff00 !important;
+}
+body.clv-high-contrast svg,
+body.clv-high-contrast svg * {
+  stroke: #00ffff !important;
+  fill: none !important;
 }
 body.clv-high-contrast img {
   filter: invert(1) brightness(1.5) !important;
@@ -291,13 +330,34 @@ body.clv-grayscale .wa-fab {
   opacity: 1 !important;
   visibility: visible !important;
   pointer-events: auto !important;
+  background: #050505 !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  border-color: #fff !important;
+}
+body.clv-negative #clv-a11y-panel *,
+body.clv-negative #clv-a11y-btn *,
+body.clv-grayscale #clv-a11y-panel *,
+body.clv-grayscale #clv-a11y-btn * {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
 }
 
 body.clv-links a {
-  outline: 2px solid #ff0 !important;
+  color: #003c8f !important;
+  -webkit-text-fill-color: #003c8f !important;
+  outline: 2px solid #003c8f !important;
   text-decoration: underline !important;
-  text-decoration-color: #ff0 !important;
-  background: rgba(255,255,0,0.1) !important;
+  text-decoration-color: #003c8f !important;
+  text-decoration-thickness: 3px !important;
+  text-underline-offset: 4px !important;
+  background: #fff176 !important;
+}
+body.clv-links #clv-a11y-panel #clv-a11y-statement-link {
+  color: #003c8f !important;
+  -webkit-text-fill-color: #003c8f !important;
+  background: #fff176 !important;
+  background-color: #fff176 !important;
 }
 
 body.clv-stop-anim *, body.clv-stop-anim *::before, body.clv-stop-anim *::after {
@@ -314,6 +374,99 @@ body.clv-read-font, body.clv-read-font * {
   letter-spacing: 0.03em !important;
   word-spacing: 0.1em !important;
   line-height: 1.6 !important;
+}
+
+/* Light-theme specificity bridge: these rules intentionally match the site's
+   html[data-theme="light"] selectors so accessibility states always win. */
+html[data-theme="light"] body.clv-high-contrast,
+html[data-theme="light"] body.clv-high-contrast *:not(svg):not(path) {
+  background: #000 !important;
+  background-color: #000 !important;
+  background-image: none !important;
+  color: #ffff00 !important;
+  -webkit-text-fill-color: #ffff00 !important;
+  border-color: #ffff00 !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+html[data-theme="light"] body.clv-high-contrast a,
+html[data-theme="light"] body.clv-high-contrast a *:not(svg):not(path),
+html[data-theme="light"] body.clv-high-contrast button,
+html[data-theme="light"] body.clv-high-contrast button *:not(svg):not(path),
+html[data-theme="light"] body.clv-high-contrast #themeToggle,
+html[data-theme="light"] body.clv-high-contrast #themeToggle *:not(svg):not(path) {
+  color: #00ffff !important;
+  -webkit-text-fill-color: #00ffff !important;
+  border-color: #00ffff !important;
+}
+html[data-theme="light"] body.clv-high-contrast .nav-brand,
+html[data-theme="light"] body.clv-high-contrast .nav-brand .wordmark,
+html[data-theme="light"] body.clv-high-contrast #themeToggle,
+html[data-theme="light"] body.clv-high-contrast #themeToggle .theme-label,
+html[data-theme="light"] body.clv-high-contrast .grad-teal,
+html[data-theme="light"] body.clv-high-contrast .hero-title,
+html[data-theme="light"] body.clv-high-contrast h1,
+html[data-theme="light"] body.clv-high-contrast h2,
+html[data-theme="light"] body.clv-high-contrast h3,
+html[data-theme="light"] body.clv-high-contrast p,
+html[data-theme="light"] body.clv-high-contrast .hero-sub,
+html[data-theme="light"] body.clv-high-contrast .safe-line,
+html[data-theme="light"] body.clv-high-contrast .eyebrow,
+html[data-theme="light"] body.clv-high-contrast .sev,
+html[data-theme="light"] body.clv-high-contrast .tag,
+html[data-theme="light"] body.clv-high-contrast .btn,
+html[data-theme="light"] body.clv-high-contrast a.btn,
+html[data-theme="light"] body.clv-high-contrast .btn-ghost,
+html[data-theme="light"] body.clv-high-contrast a.btn-ghost,
+html[data-theme="light"] body.clv-high-contrast .hero-actions .btn-ghost,
+html[data-theme="light"] body.clv-high-contrast .btn-primary {
+  background: #000 !important;
+  background-color: #000 !important;
+  background-image: none !important;
+  color: #ffff00 !important;
+  -webkit-text-fill-color: #ffff00 !important;
+  border-color: #ffff00 !important;
+}
+html[data-theme="light"] body.clv-links #clv-a11y-panel #clv-a11y-statement-link,
+html[data-theme="light"] body.clv-links a:not(.btn),
+html[data-theme="light"] body.clv-links a:not(.btn) *:not(svg):not(path) {
+  color: #003c8f !important;
+  -webkit-text-fill-color: #003c8f !important;
+  background: #fff176 !important;
+  background-color: #fff176 !important;
+  text-decoration-color: #003c8f !important;
+}
+html[data-theme="light"] body.clv-links .lang a,
+html[data-theme="light"] body.clv-links .lang a.active,
+html[data-theme="light"] body.clv-links .mm-lang-group a,
+html[data-theme="light"] body.clv-links .mm-lang-group a.active {
+  color: #003c8f !important;
+  -webkit-text-fill-color: #003c8f !important;
+  background: #fff176 !important;
+  background-color: #fff176 !important;
+  border-color: #003c8f !important;
+}
+html[data-theme="light"] body.clv-links #themeToggle,
+html[data-theme="light"] body.clv-links #themeToggle *:not(svg):not(path) {
+  color: #3b2415 !important;
+  -webkit-text-fill-color: #3b2415 !important;
+  background: #fffdf7 !important;
+  background-color: #fffdf7 !important;
+}
+html[data-theme="light"] body.clv-high-contrast a.btn-ghost,
+html[data-theme="light"] body.clv-high-contrast .hero-actions a.btn-ghost {
+  background: #000 !important;
+  background-color: #000 !important;
+  color: #ffff00 !important;
+  -webkit-text-fill-color: #ffff00 !important;
+  border-color: #ffff00 !important;
+}
+html[data-theme="light"] body.clv-links .btn,
+html[data-theme="light"] body.clv-links .btn *:not(svg):not(path) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: #4b2c17 !important;
+  background-color: #4b2c17 !important;
 }
 `;
 
@@ -412,6 +565,47 @@ body.clv-read-font, body.clv-read-font * {
   document.body.appendChild(panel);
 
   // ── Apply state to DOM ─────────────────────────────────────────────────
+  function setImportant(el, prop, value) {
+    if (el && el.style) el.style.setProperty(prop, value, 'important');
+  }
+  function clearInlineA11y() {
+    document.querySelectorAll('[data-clv-inline-a11y="1"]').forEach(el => {
+      ['background','background-color','background-image','color','-webkit-text-fill-color','border-color','transition'].forEach(prop => el.style.removeProperty(prop));
+      el.removeAttribute('data-clv-inline-a11y');
+    });
+  }
+  function applyInlineA11y() {
+    clearInlineA11y();
+    if (state.contrast) {
+      document.querySelectorAll('.btn, a.btn, .btn-ghost, .btn-primary, .nav-brand, .wordmark, #themeToggle').forEach(el => {
+        el.setAttribute('data-clv-inline-a11y', '1');
+        setImportant(el, 'background-image', 'none');
+        setImportant(el, 'background-color', '#000');
+        const highContrastText = el.matches('.btn-ghost') ? '#000000' : (el.matches('a, button, #themeToggle, .btn') ? '#00ffff' : '#ffff00');
+        setImportant(el, 'color', highContrastText);
+        setImportant(el, '-webkit-text-fill-color', highContrastText);
+        setImportant(el, 'border-color', '#ffff00');
+      });
+    } else if (state.links) {
+      document.querySelectorAll('#themeToggle').forEach(el => {
+        el.setAttribute('data-clv-inline-a11y', '1');
+        setImportant(el, 'background-color', '#fffdf7');
+        setImportant(el, 'color', '#3b2415');
+        setImportant(el, '-webkit-text-fill-color', '#3b2415');
+      });
+      document.querySelectorAll('.btn, a.btn').forEach(el => {
+        el.setAttribute('data-clv-inline-a11y', '1');
+        setImportant(el, 'transition', 'none');
+        setImportant(el, 'background-image', 'none');
+        setImportant(el, 'background', '#4b2c17');
+        setImportant(el, 'background-color', '#4b2c17');
+        setImportant(el, 'color', '#fff');
+        setImportant(el, '-webkit-text-fill-color', '#fff');
+        setImportant(el, 'border-color', '#4b2c17');
+      });
+    }
+  }
+
   function applyState() {
     const body = document.body;
 
@@ -428,6 +622,8 @@ body.clv-read-font, body.clv-read-font * {
     body.classList.toggle('clv-stop-anim',     state.stopAnim);
     body.classList.toggle('clv-big-cursor',    state.bigCursor);
     body.classList.toggle('clv-read-font',     state.readFont);
+
+    applyInlineA11y();
 
     // Update button active states
     ['contrast','negative','grayscale','links','stopAnim','bigCursor','readFont'].forEach(k => {
