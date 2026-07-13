@@ -316,9 +316,20 @@ body.clv-high-contrast img {
   filter: invert(1) brightness(1.5) !important;
 }
 
-body.clv-negative > :not(#clv-a11y-btn):not(#clv-a11y-panel):not(.wa-fab) { filter: invert(1) hue-rotate(180deg); }
-body.clv-grayscale > :not(#clv-a11y-btn):not(#clv-a11y-panel):not(.wa-fab) { filter: grayscale(100%); }
-body.clv-negative.clv-grayscale > :not(#clv-a11y-btn):not(#clv-a11y-panel):not(.wa-fab) { filter: invert(1) hue-rotate(180deg) grayscale(100%); }
+html:has(body.clv-negative),
+body.clv-negative {
+  background: #050505 !important;
+  background-color: #050505 !important;
+}
+body.clv-negative > :not(#clv-a11y-btn):not(#clv-a11y-panel):not(.wa-fab) {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
+body.clv-grayscale > :not(#clv-a11y-btn):not(#clv-a11y-panel):not(.wa-fab) {
+  filter: grayscale(100%) !important;
+}
+body.clv-negative.clv-grayscale > :not(#clv-a11y-btn):not(#clv-a11y-panel):not(.wa-fab) {
+  filter: invert(1) hue-rotate(180deg) grayscale(100%) !important;
+}
 
 body.clv-negative #clv-a11y-btn,
 body.clv-negative #clv-a11y-panel,
