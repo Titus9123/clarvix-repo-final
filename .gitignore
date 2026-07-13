@@ -45,3 +45,7 @@ coverage/
 # Misc
 .prettierignore
 .prettierrc
+
+# Python
+__pycache__/
+*.pyc
